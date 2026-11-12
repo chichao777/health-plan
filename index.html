@@ -158,8 +158,19 @@ body.has-tabs .wrap{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))
 }
 
 </style>
+<meta name="theme-color" content="#f5f7f8">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="健康计划">
+<link rel="icon" type="image/svg+xml" href="./assets/health-icon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="./assets/health-icon-180.png">
+<link rel="manifest" href="./manifest.webmanifest?v=20261112-app1">
+<link rel="stylesheet" href="./mobile-app.css?v=20261112-app1">
 </head>
 <body>
+<header class="app-topbar no-print"><img src="./assets/health-icon.svg" class="app-brand" alt=""><div><div class="app-title">12周健康计划</div><div class="app-subtitle" id="appSubtitle">个人档案</div></div><button class="app-sync-button" id="appSyncButton" type="button"><span class="app-sync-dot" aria-hidden="true"></span><span id="appSyncLabel">云端同步</span></button></header>
+<div class="app-update no-print" id="appUpdate" hidden><span>新版本已准备好</span><button id="appReload" type="button">刷新使用</button></div>
 <div class="wrap">
 <header class="hero">
   <div class="eyebrow">PERSONAL HEALTH & FITNESS PLAN · 12 WEEKS</div>
@@ -171,19 +182,7 @@ body.has-tabs .wrap{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))
 </header>
 
 <div class="callout blue no-print" role="status" id="saveStatus">记录会先保存在当前浏览器；登录后可同步到同一账号的其他设备。建议定期备份。</div>
-<section class="card no-print" id="cloudSync" aria-labelledby="cloudHeading" data-page="profile">
-<h2 id="cloudHeading">云端同步</h2>
-<p id="cloudAccount" class="sub">用同一个邮箱登录，即可在手机与电脑之间同步。</p>
-<div id="cloudLogin" class="grid grid-2" style="margin-top:14px">
- <div><label class="field" for="cloudEmail">登录邮箱</label><input type="email" id="cloudEmail" autocomplete="email" required placeholder="你的邮箱"><button class="btn secondary" id="cloudSendCode" style="margin-top:8px">发送登录邮件</button></div>
- <div><label class="field" for="cloudCode">邮件验证码</label><input type="text" id="cloudCode" autocomplete="one-time-code" inputmode="numeric" placeholder="输入邮件中的验证码"><button class="btn" id="cloudVerify" style="margin-top:8px">验证并登录</button></div>
-</div>
-<details id="cloudLinkHelp"><summary>邮件里只有登录链接？</summary><div class="details-body"><p class="small">复制邮件中的完整登录链接，粘贴到这里验证，无需跳转到其他页面。链接用于本次登录，不会保存到健康记录。</p><label class="field" for="cloudMagicLink">邮件登录链接</label><input type="text" id="cloudMagicLink" autocomplete="off" placeholder="粘贴邮件中的登录链接"><button class="btn secondary" id="cloudVerifyLink" style="margin-top:8px">验证登录链接</button></div></details>
-<div id="cloudSignedIn" hidden><div class="btn-row"><button class="btn" id="cloudSyncNow">立即同步</button><button class="btn outline" id="cloudSignOut">退出登录</button></div></div>
-<p id="cloudStatus" role="status" aria-live="polite">正在恢复登录状态…</p>
-<div id="cloudConflicts" class="callout amber" hidden><strong>有记录需要选择</strong><p id="cloudConflictDetails" style="white-space:pre-line"></p><div class="btn-row"><button class="btn" id="cloudKeepLocal">保留本机冲突项</button><button class="btn secondary" id="cloudKeepRemote">使用云端冲突项</button></div></div>
-<p class="small">登录后，打卡、指标和总结会保存到你的 Supabase 账号记录中，仅该账号可读写。每15秒及返回页面时检查更新；离线修改会暂存本机。请在个人设备登录，并定期导出备份。</p>
-</section>
+
 
 
 <section id="overview" data-page="profile">
@@ -226,6 +225,19 @@ body.has-tabs .wrap{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))
   </div>
 </section>
 
+<section class="card no-print" id="cloudSync" aria-labelledby="cloudHeading" data-page="profile">
+<h2 id="cloudHeading">云端同步</h2>
+<p id="cloudAccount" class="sub">用同一个邮箱登录，即可在手机与电脑之间同步。</p>
+<div id="cloudLogin" class="grid grid-2" style="margin-top:14px">
+ <div><label class="field" for="cloudEmail">登录邮箱</label><input type="email" id="cloudEmail" autocomplete="email" required placeholder="你的邮箱"><button class="btn secondary" id="cloudSendCode" style="margin-top:8px">发送登录邮件</button></div>
+ <div><label class="field" for="cloudCode">邮件验证码</label><input type="text" id="cloudCode" autocomplete="one-time-code" inputmode="numeric" placeholder="输入邮件中的验证码"><button class="btn" id="cloudVerify" style="margin-top:8px">验证并登录</button></div>
+</div>
+<details id="cloudLinkHelp"><summary>邮件里只有登录链接？</summary><div class="details-body"><p class="small">复制邮件中的完整登录链接，粘贴到这里验证，无需跳转到其他页面。链接用于本次登录，不会保存到健康记录。</p><label class="field" for="cloudMagicLink">邮件登录链接</label><input type="text" id="cloudMagicLink" autocomplete="off" placeholder="粘贴邮件中的登录链接"><button class="btn secondary" id="cloudVerifyLink" style="margin-top:8px">验证登录链接</button></div></details>
+<div id="cloudSignedIn" hidden><div class="btn-row"><button class="btn" id="cloudSyncNow">立即同步</button><button class="btn outline" id="cloudSignOut">退出登录</button></div></div>
+<p id="cloudStatus" role="status" aria-live="polite">正在恢复登录状态…</p>
+<div id="cloudConflicts" class="callout amber" hidden><strong>有记录需要选择</strong><p id="cloudConflictDetails" style="white-space:pre-line"></p><div class="btn-row"><button class="btn" id="cloudKeepLocal">保留本机冲突项</button><button class="btn secondary" id="cloudKeepRemote">使用云端冲突项</button></div></div>
+<p class="small">登录后，打卡、指标和总结会保存到你的 Supabase 账号记录中，仅该账号可读写。每15秒及返回页面时检查更新；离线修改会暂存本机。请在个人设备登录，并定期导出备份。</p>
+</section>
 <section id="safety" data-page="profile">
   <div class="section-head"><div><h2>02 · 医疗优先事项与运动安全</h2><p class="sub">先处理高优先级风险，再逐步增加训练量。</p></div><span class="tag red">优先完成</span></div>
   <div class="callout red">
@@ -263,7 +275,7 @@ body.has-tabs .wrap{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))
   <p class="small">没有运动症状是有利信息，但不能据此排除心血管疾病或自动获得高强度训练许可。是否需要运动负荷试验由医生结合病史、体检和风险决定。</p>
 </section>
 
-<section id="roadmap" data-page="training">
+<details class="app-roadmap" data-page="training"><summary>查看12周路线与阶段说明</summary><section id="roadmap" data-page="training">
   <div class="section-head"><div><h2>03 · 12周路线图</h2><p class="sub">前2周以就医评估和低强度活动为主；后续训练只有在相关医生评估后、症状不被诱发且获准时才逐步执行。</p></div></div>
   <div class="grid grid-3">
     <div class="card">
@@ -299,7 +311,7 @@ body.has-tabs .wrap{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))
       <div><label class="field">当前阶段</label><input type="text" value="第1–2周：医疗评估" readonly></div>
     </div>
   </div>
-</section>
+</section></details>
 
 <section id="training" data-page="training">
   <div class="section-head"><div><h2>04 · 每周训练安排</h2><p class="sub">建议训练日：周一、周三、周五；其他日安排轻松步行/恢复。所有正式力量训练均以医疗评估及许可为前提。</p></div></div>
@@ -491,6 +503,7 @@ body.has-tabs .wrap{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))
   </div>
 </section>
 
+<aside class="app-install no-print" id="appInstallTip" data-page="profile"><strong>像应用一样，从桌面打开</strong><p>在浏览器菜单选择“添加到主屏幕”，以后从桌面图标打开。iPhone 可在 Safari 的分享菜单中找到此选项。</p><button class="btn" type="button" id="appInstallButton" hidden>添加到主屏幕</button></aside>
 <div class="footer" data-page="profile">
   <p><b>资料依据：</b>用户提供的InBody（2026-11-08）、肝肾功能/血脂/尿酸报告（采样2026-11-07，报告未注明是否空腹）及睡眠监测信息。血脂报告：TC 7.21、TG 3.53、HDL-C 1.00、LDL-C 5.53、non-HDL-C 6.21 mmol/L；尿酸505 μmol/L；ALT37、AST20、肌酐87.6、eGFR98.8。睡眠AHI 30.7；TST 26.6的项目含义待核对原始报告。</p>
   <p>本工具用于个人记录与健康教育，不能替代医生诊断、处方、睡眠治疗或康复评估。若医生意见与本计划不同，以医生意见为准。</p>
@@ -753,10 +766,11 @@ $("resetBtn").addEventListener("click",()=>{
   }
 });
 </script>
-<script src="./assets/supabase.min.js"></script>
-<script src="./sync-core.js"></script>
-<script src="./cloud-sync.js"></script>
+<script src="./assets/supabase.min.js?v=20261112-app1"></script>
+<script src="./sync-core.js?v=20261112-app1"></script>
+<script src="./cloud-sync.js?v=20261112-app1"></script>
 <nav class="bottom-nav no-print" id="bottomNav" aria-label="主要导航" hidden><button type="button" data-view="profile" aria-controls="overview safety cloudSync"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3"/><path d="M5 21v-2a7 7 0 0 1 14 0v2M4 3h16"/></svg><span>个人档案</span></button><button type="button" data-view="training" aria-controls="roadmap training"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8v8M3 10v4M18 8v8M21 10v4M6 12h12"/></svg><span>训练安排</span></button><button type="button" data-view="nutrition" aria-controls="nutrition lifestyle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3v6M4 3v4a3 3 0 0 0 6 0V3M7 10v11M20 3c-4 2-5 5-5 9h5M20 3v18"/></svg><span>饮食标准</span></button><button type="button" data-view="tracker" aria-controls="tracker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4v16h17M8 15l4-5 4 3 5-7"/></svg><span>指标追踪</span></button><button type="button" data-view="weekly" aria-controls="weekly review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="3"/><path d="M8 3v4M16 3v4M4 10h16M8 15l3 3 5-5"/></svg><span>每周打卡</span></button></nav>
-<script src="./mobile-tabs.js"></script>
+<script src="./mobile-tabs.js?v=20261112-app1"></script>
+<script src="./mobile-app.js?v=20261112-app1"></script>
 </body>
 </html>

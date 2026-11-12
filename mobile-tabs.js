@@ -17,7 +17,11 @@
       else button.removeAttribute('aria-current');
     }
     requestAnimationFrame(() => {
-      if (anchor) document.getElementById(anchor)?.scrollIntoView({block:'start',behavior:'instant'});
+      if (anchor) {
+        const target=document.getElementById(anchor), details=target?.closest('details');
+        if(details)details.open=true;
+        target?.scrollIntoView({block:'start',behavior:'instant'});
+      }
       else window.scrollTo({top:positions[view] || 0,behavior:'instant'});
     });
   }
