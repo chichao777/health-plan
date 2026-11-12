@@ -165,11 +165,11 @@ body.has-tabs .wrap{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))
 <meta name="apple-mobile-web-app-title" content="健康计划">
 <link rel="icon" type="image/svg+xml" href="./assets/health-icon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="./assets/health-icon-180.png">
-<link rel="manifest" href="./manifest.webmanifest?v=20261112-app2">
-<link rel="stylesheet" href="./mobile-app.css?v=20261112-app2">
+<link rel="manifest" href="./manifest.webmanifest?v=20261112-app3">
+<link rel="stylesheet" href="./mobile-app.css?v=20261112-app3">
 </head>
 <body>
-<header class="app-topbar no-print"><img src="./assets/health-icon.svg" class="app-brand" alt=""><div><div class="app-title">12周健康计划</div><div class="app-subtitle" id="appSubtitle">个人档案</div></div><button class="app-sync-button" id="appSyncButton" type="button"><span class="app-sync-dot" aria-hidden="true"></span><span id="appSyncLabel">云端同步</span></button></header>
+<header class="app-topbar no-print"><img src="./assets/health-icon.svg" class="app-brand" alt=""><div><div class="app-title">12周健康计划</div><div class="app-subtitle" id="appSubtitle">个人档案</div></div><button class="app-sync-button" id="appSyncButton" type="button" aria-haspopup="dialog" aria-controls="cloudSync" aria-expanded="false"><span class="app-sync-dot" aria-hidden="true"></span><span id="appSyncLabel">云端同步</span></button></header>
 <div class="app-update no-print" id="appUpdate" hidden><span>新版本已准备好</span><button id="appReload" type="button">刷新使用</button></div>
 <div class="wrap">
 <header class="hero">
@@ -225,19 +225,7 @@ body.has-tabs .wrap{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))
   </div>
 </section>
 
-<section class="card no-print" id="cloudSync" aria-labelledby="cloudHeading" data-page="profile">
-<h2 id="cloudHeading">云端同步</h2>
-<p id="cloudAccount" class="sub">用同一个邮箱登录，即可在手机与电脑之间同步。</p>
-<div id="cloudLogin" class="grid grid-2" style="margin-top:14px">
- <div><label class="field" for="cloudEmail">登录邮箱</label><input type="email" id="cloudEmail" autocomplete="email" required placeholder="你的邮箱"><button class="btn secondary" id="cloudSendCode" style="margin-top:8px">发送登录邮件</button></div>
- <div><label class="field" for="cloudCode">邮件验证码</label><input type="text" id="cloudCode" autocomplete="one-time-code" inputmode="numeric" placeholder="输入邮件中的验证码"><button class="btn" id="cloudVerify" style="margin-top:8px">验证并登录</button></div>
-</div>
-<details id="cloudLinkHelp"><summary>邮件里只有登录链接？</summary><div class="details-body"><p class="small">复制邮件中的完整登录链接，粘贴到这里验证，无需跳转到其他页面。链接用于本次登录，不会保存到健康记录。</p><label class="field" for="cloudMagicLink">邮件登录链接</label><input type="text" id="cloudMagicLink" autocomplete="off" placeholder="粘贴邮件中的登录链接"><button class="btn secondary" id="cloudVerifyLink" style="margin-top:8px">验证登录链接</button></div></details>
-<div id="cloudSignedIn" hidden><div class="btn-row"><button class="btn" id="cloudSyncNow">立即同步</button><button class="btn outline" id="cloudSignOut">退出登录</button></div></div>
-<p id="cloudStatus" role="status" aria-live="polite">正在恢复登录状态…</p>
-<div id="cloudConflicts" class="callout amber" hidden><strong>有记录需要选择</strong><p id="cloudConflictDetails" style="white-space:pre-line"></p><div class="btn-row"><button class="btn" id="cloudKeepLocal">保留本机冲突项</button><button class="btn secondary" id="cloudKeepRemote">使用云端冲突项</button></div></div>
-<p class="small">登录后，打卡、指标和总结会保存到你的 Supabase 账号记录中，仅该账号可读写。每15秒及返回页面时检查更新；离线修改会暂存本机。请在个人设备登录，并定期导出备份。</p>
-</section>
+
 <section id="safety" data-page="profile">
   <div class="section-head"><div><h2>02 · 医疗优先事项与运动安全</h2><p class="sub">先处理高优先级风险，再逐步增加训练量。</p></div><span class="tag red">优先完成</span></div>
   <div class="callout red">
@@ -511,6 +499,19 @@ body.has-tabs .wrap{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))
 </div>
 </div>
 
+<dialog class="sync-sheet no-print" id="cloudSync" aria-labelledby="cloudHeading">
+<div class="sync-sheet-head"><div><span class="sync-kicker">账号与记录</span><h2 id="cloudHeading">云端同步</h2></div><button type="button" class="sync-close" id="closeCloudSync" aria-label="关闭云端同步">×</button></div>
+<p id="cloudAccount" class="sub">用同一个邮箱登录，即可在手机与电脑之间同步。</p>
+<div id="cloudLogin" class="grid grid-2" style="margin-top:14px">
+ <div><label class="field" for="cloudEmail">登录邮箱</label><input type="email" id="cloudEmail" autocomplete="email" required placeholder="你的邮箱"><button class="btn secondary" id="cloudSendCode" style="margin-top:8px">发送登录邮件</button></div>
+ <div><label class="field" for="cloudCode">邮件验证码</label><input type="text" id="cloudCode" autocomplete="one-time-code" inputmode="numeric" placeholder="输入邮件中的验证码"><button class="btn" id="cloudVerify" style="margin-top:8px">验证并登录</button></div>
+</div>
+<details id="cloudLinkHelp"><summary>邮件里只有登录链接？</summary><div class="details-body"><p class="small">复制邮件中的完整登录链接，粘贴到这里验证，无需跳转到其他页面。链接用于本次登录，不会保存到健康记录。</p><label class="field" for="cloudMagicLink">邮件登录链接</label><input type="text" id="cloudMagicLink" autocomplete="off" placeholder="粘贴邮件中的登录链接"><button class="btn secondary" id="cloudVerifyLink" style="margin-top:8px">验证登录链接</button></div></details>
+<div id="cloudSignedIn" hidden><div class="btn-row"><button class="btn" id="cloudSyncNow">立即同步</button><button class="btn outline" id="cloudSignOut">退出登录</button></div></div>
+<p id="cloudStatus" role="status" aria-live="polite">正在恢复登录状态…</p>
+<div id="cloudConflicts" class="callout amber" hidden><strong>有记录需要选择</strong><p id="cloudConflictDetails" style="white-space:pre-line"></p><div class="btn-row"><button class="btn" id="cloudKeepLocal">保留本机冲突项</button><button class="btn secondary" id="cloudKeepRemote">使用云端冲突项</button></div></div>
+<details class="sync-explainer"><summary>记录与同步说明</summary><p class="small">登录同一邮箱即可同步打卡、指标和总结。离线修改暂存本机，联网后再同步；请定期导出备份。</p></details>
+</dialog>
 <script>
 let STORAGE_KEY = "healthPlan12w_v1";
 const $ = (id)=>document.getElementById(id);
@@ -766,11 +767,11 @@ $("resetBtn").addEventListener("click",()=>{
   }
 });
 </script>
-<script src="./assets/supabase.min.js?v=20261112-app2"></script>
-<script src="./sync-core.js?v=20261112-app2"></script>
-<script src="./cloud-sync.js?v=20261112-app2"></script>
+<script src="./assets/supabase.min.js?v=20261112-app3"></script>
+<script src="./sync-core.js?v=20261112-app3"></script>
+<script src="./cloud-sync.js?v=20261112-app3"></script>
 <nav class="bottom-nav no-print" id="bottomNav" aria-label="主要导航" hidden><button type="button" data-view="profile" aria-controls="overview safety cloudSync"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3"/><path d="M5 21v-2a7 7 0 0 1 14 0v2M4 3h16"/></svg><span>个人档案</span></button><button type="button" data-view="training" aria-controls="roadmap training"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8v8M3 10v4M18 8v8M21 10v4M6 12h12"/></svg><span>训练安排</span></button><button type="button" data-view="nutrition" aria-controls="nutrition lifestyle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3v6M4 3v4a3 3 0 0 0 6 0V3M7 10v11M20 3c-4 2-5 5-5 9h5M20 3v18"/></svg><span>饮食标准</span></button><button type="button" data-view="tracker" aria-controls="tracker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4v16h17M8 15l4-5 4 3 5-7"/></svg><span>指标追踪</span></button><button type="button" data-view="weekly" aria-controls="weekly review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="3"/><path d="M8 3v4M16 3v4M4 10h16M8 15l3 3 5-5"/></svg><span>每周打卡</span></button></nav>
-<script src="./mobile-tabs.js?v=20261112-app2"></script>
-<script src="./mobile-app.js?v=20261112-app2"></script>
+<script src="./mobile-tabs.js?v=20261112-app3"></script>
+<script src="./mobile-app.js?v=20261112-app3"></script>
 </body>
 </html>

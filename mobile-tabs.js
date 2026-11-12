@@ -27,6 +27,10 @@
   }
   function followHash(initial = false) {
     const hash = window.location.hash.slice(1);
+    if(hash==='cloudSync'){
+      if(!active)activate('profile');
+      window.dispatchEvent(new Event('open-health-sync'));return;
+    }
     const target = document.getElementById(hash);
     const panel = target?.closest('[data-page]');
     if (panel) activate(panel.dataset.page, {anchor:initial && Object.values(routes).includes(hash) ? null : hash});
@@ -52,9 +56,7 @@
   // Show conflicts even if the user is currently reading a different view.
   const conflicts = document.getElementById('cloudConflicts');
   new MutationObserver(() => {
-    if (!conflicts.hidden && active !== 'profile') {
-      history.pushState(null,'','#cloudSync');activate('profile',{anchor:'cloudSync'});
-    }
+    if (!conflicts.hidden) window.dispatchEvent(new Event('open-health-sync'));
   }).observe(conflicts,{attributes:true,attributeFilter:['hidden']});
   document.body.classList.add('has-tabs');nav.hidden = false;followHash(true);
 })();

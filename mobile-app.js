@@ -10,10 +10,23 @@
     id('appSyncButton').title = text;
   }
   new MutationObserver(updateSync).observe(id('cloudStatus'),{childList:true,characterData:true,subtree:true});updateSync();
-  id('appSyncButton').addEventListener('click',()=>{
-    if(location.hash==='#cloudSync') id('cloudSync').scrollIntoView({block:'start'});
-    else location.hash='cloudSync';
+  const syncDialog=id('cloudSync');
+  function openSync(){
+    if(!syncDialog.open){syncDialog.showModal();document.body.classList.add('sync-dialog-open')}
+    id('appSyncButton').setAttribute('aria-expanded','true');
+  }
+  id('appSyncButton').addEventListener('click',openSync);
+  id('closeCloudSync').addEventListener('click',()=>syncDialog.close());
+  syncDialog.addEventListener('close',()=>{document.body.classList.remove('sync-dialog-open');id('appSyncButton').setAttribute('aria-expanded','false')});
+  syncDialog.addEventListener('click',event=>{
+    const bounds=syncDialog.getBoundingClientRect();
+    if(event.target===syncDialog&&(event.clientX<bounds.left||event.clientX>bounds.right||event.clientY<bounds.top||event.clientY>bounds.bottom))syncDialog.close();
   });
+  window.addEventListener('open-health-sync',openSync);
+  window.addEventListener('hashchange',()=>{if(location.hash==='#cloudSync')openSync()});
+  if(location.hash==='#cloudSync'||!id('cloudConflicts').hidden)openSync();
+  function updateLoginView(){id('cloudLinkHelp').hidden=id('cloudLogin').hidden}
+  new MutationObserver(updateLoginView).observe(id('cloudLogin'),{attributes:true,attributeFilter:['hidden']});updateLoginView();
   function makeWeekControl(containerId,label) {
     const box=document.createElement('div');box.className='app-week-switcher no-print';
     const prev=document.createElement('button');prev.type='button';prev.textContent='‹';prev.setAttribute('aria-label',label+'上一周');
@@ -48,7 +61,8 @@
   }
   new MutationObserver(labelTables).observe(id('trackingBody'),{childList:true});
   new MutationObserver(markWeeks).observe(id('weeklyPlans'),{childList:true});labelTables();
-  new MutationObserver(markWeeks).observe(id('saveStatus'),{childList:true,subtree:true});
+  function localStatus(){id('saveStatus').classList.toggle('app-storage-error',/保存失败|不可用|请立即/.test(id('saveStatus').textContent));markWeeks()}
+  new MutationObserver(localStatus).observe(id('saveStatus'),{childList:true,subtree:true});localStatus();
   let printDetails=[];
   window.addEventListener('beforeprint',()=>{printDetails=[...document.querySelectorAll('details:not([open])')];printDetails.forEach(el=>el.open=true)});
   window.addEventListener('afterprint',()=>{printDetails.forEach(el=>el.open=false);printDetails=[]});
@@ -73,6 +87,6 @@
   }
   id('appReload').addEventListener('click',()=>{
     if(document.activeElement?.matches('input,textarea'))document.activeElement.blur();
-    const url=new URL(location.href);url.searchParams.set('v','20261112-app2');location.replace(url.href);
+    const url=new URL(location.href);url.searchParams.set('v','20261112-app3');location.replace(url.href);
   });
 })();

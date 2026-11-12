@@ -61,6 +61,26 @@ body.has-tabs:not([data-active-page="profile"]) .hero{display:none}
 .app-install .btn{font-size:13px;background:#167c80}
 .app-update{position:fixed;z-index:50;top:calc(var(--app-header) + env(safe-area-inset-top,0px) + 6px);left:16px;right:16px;max-width:568px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:#18324b;color:#fff;border-radius:12px;font-size:13px;box-shadow:var(--shadow)}
 .app-update button{min-height:40px;border:0;border-radius:8px;padding:8px 12px;background:#fff;color:var(--navy);font-weight:700}
+.sync-dialog-open{overflow:hidden}
+.has-tabs #saveStatus{display:none}
+.has-tabs #saveStatus.app-storage-error{display:block;color:var(--red);background:var(--red-bg);padding:10px 12px;border-radius:10px}
+.sync-sheet{position:fixed;inset:auto 0 0;margin:0 auto;width:100%;max-width:600px;max-height:min(680px,88dvh);overflow:auto;overscroll-behavior:contain;padding:22px 20px calc(20px + env(safe-area-inset-bottom,0px));border:0;border-radius:24px 24px 0 0;background:#fff;color:var(--ink);box-shadow:0 -10px 50px rgba(15,35,45,.16)}
+.sync-sheet::backdrop{background:rgba(16,34,44,.38);backdrop-filter:blur(3px)}
+.sync-sheet-head{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:10px}
+.sync-sheet h2{margin:0;font-size:21px}
+.sync-kicker{display:block;color:var(--teal);font-size:11px;letter-spacing:.08em;margin-bottom:3px}
+.sync-close{width:44px;height:44px;flex-shrink:0;border:0;background:#f0f4f5;border-radius:50%;font-size:27px;color:#647077;cursor:pointer}
+.sync-sheet #cloudAccount{font-size:12px;line-height:1.65}
+.sync-sheet #cloudLogin{gap:12px;margin-top:16px!important}
+.sync-sheet #cloudLogin>div{display:grid;grid-template-columns:1fr auto;column-gap:8px}
+.sync-sheet #cloudLogin label{grid-column:1 / -1}
+.sync-sheet #cloudLogin button{margin-top:0!important;font-size:12px;padding:9px 12px;white-space:nowrap}
+.sync-sheet #cloudStatus{font-size:12px;line-height:1.7;background:#edf5f4;border-radius:10px;padding:11px 12px;margin:14px 0}
+.sync-sheet details{border:0;background:#f7f9fa;margin:10px 0;border-radius:10px}
+.sync-sheet summary{font-size:12px;padding:10px 12px;min-height:40px}
+.sync-sheet .sync-explainer p{padding:0 12px 12px;margin:0}
+.sync-sheet .details-body{padding:0 12px 12px}
+@media(min-width:701px){.sync-sheet{inset:0;margin:auto;width:400px;height:fit-content;max-height:85dvh;border-radius:24px;padding:24px}}
 @media(max-width:700px){
  .has-tabs #weeklyPlans>.week-card:not(.app-current-week){display:none}
  .has-tabs #training{margin-top:16px}
