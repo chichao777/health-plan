@@ -1,7 +1,7 @@
 /* Public application shell only. Auth endpoints and personal cloud records are never cached. */
-const VERSION='health-plan-shell-20261112-app3';
-const REV='20261112-app3';
-const SHELL=['./','./index.html','./mobile-app.css?v='+REV,'./mobile-app.js?v='+REV,
+const VERSION='health-plan-shell-20261112-v3blue';
+const REV='20261112-v3blue';
+const SHELL=['./','./index.html','./sports-theme.css?v='+REV,'./medical-theme.css?v='+REV,'./v3-blue.css?v='+REV,'./sports-ui.js?v='+REV,'./weekly-dates.js?v='+REV,'./assets/wellness-hero.png?v='+REV,'./mobile-app.css?v='+REV,'./mobile-app.js?v='+REV,
  './mobile-tabs.js?v='+REV,'./cloud-sync.js?v='+REV,'./sync-core.js?v='+REV,
  './assets/supabase.min.js?v='+REV,'./assets/health-icon.svg','./assets/health-icon-180.png',
  './assets/health-icon-192.png','./assets/health-icon-512.png','./manifest.webmanifest?v='+REV];
@@ -16,7 +16,7 @@ self.addEventListener('fetch',event=>{
  const url=new URL(event.request.url),base=new URL(self.registration.scope);
  if(event.request.method!=='GET'||url.origin!==base.origin||!url.pathname.startsWith(base.pathname))return;
  const relative=url.pathname.slice(base.pathname.length);
- const files=new Set(['','index.html','mobile-app.css','mobile-app.js','mobile-tabs.js','cloud-sync.js','sync-core.js',
+ const files=new Set(['','index.html','sports-theme.css','medical-theme.css','v3-blue.css','sports-ui.js','weekly-dates.js','assets/wellness-hero.png','mobile-app.css','mobile-app.js','mobile-tabs.js','cloud-sync.js','sync-core.js',
   'assets/supabase.min.js','assets/health-icon.svg','assets/health-icon-180.png','assets/health-icon-192.png','assets/health-icon-512.png','manifest.webmanifest']);
  if(!files.has(relative))return;
  event.respondWith((async()=>{

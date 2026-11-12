@@ -31,7 +31,7 @@
     const box=document.createElement('div');box.className='app-week-switcher no-print';
     const prev=document.createElement('button');prev.type='button';prev.textContent='‹';prev.setAttribute('aria-label',label+'上一周');
     const select=document.createElement('select');select.setAttribute('aria-label',label+'选择周次');select.id=containerId+'Week';
-    for(let n=1;n<=12;n++){const option=document.createElement('option');option.value=String(n);option.textContent=`第${n}周 · ${label==='训练' ? plan[n-1].phase.split('｜')[1] : '身体指标'}`;select.append(option)}
+    for(let n=1;n<=12;n++){const option=document.createElement('option');option.value=String(n);option.textContent=id('selectedWeek').options[n-1].textContent;select.append(option)}
     const next=document.createElement('button');next.type='button';next.textContent='›';next.setAttribute('aria-label',label+'下一周');
     box.append(prev,select,next);
     select.addEventListener('change',()=>changeWeek(Number(select.value)));
@@ -41,18 +41,18 @@
   }
   const training=makeWeekControl('appTraining','训练'),tracking=makeWeekControl('appTracking','记录');
   id('weeklyPlans').before(training.box);
-  id('trackingTable').closest('.table-wrap').before(tracking.box);
+  id('trackerFilters').append(tracking.box);
   function markWeeks() {
     const week=currentWeek();
-    for(const control of [training,tracking]){control.select.value=String(week);control.prev.disabled=week===1;control.next.disabled=week===12}
+    for(const control of [training,tracking]){[...control.select.options].forEach((option,index)=>option.textContent=id('selectedWeek').options[index].textContent);control.select.value=String(week);control.prev.disabled=week===1;control.next.disabled=week===12}
     [...id('weeklyPlans').children].forEach((el,index)=>el.classList.toggle('app-current-week',index===week-1));
-    [...id('trackingBody').children].forEach((el,index)=>el.classList.toggle('app-current-week',index===week-1));
+    if(id('trackingBody').dataset.week!==String(week))renderTracking();
   }
   function changeWeek(number){
     id('selectedWeek').value=String(Math.max(1,Math.min(12,number)));
     id('selectedWeek').dispatchEvent(new Event('change',{bubbles:true}));
   }
-  id('selectedWeek').addEventListener('change',markWeeks);
+  id('selectedWeek').addEventListener('change',markWeeks);document.addEventListener('health-state-rendered',markWeeks);
   function labelTables(){
     document.querySelectorAll('.table-wrap table').forEach(table=>{
       const labels=[...table.querySelectorAll('thead th')].map(el=>el.textContent.trim());
@@ -87,6 +87,6 @@
   }
   id('appReload').addEventListener('click',()=>{
     if(document.activeElement?.matches('input,textarea'))document.activeElement.blur();
-    const url=new URL(location.href);url.searchParams.set('v','20261112-app3');location.replace(url.href);
+    const url=new URL(location.href);url.searchParams.set('v','20261112-v3blue');location.replace(url.href);
   });
 })();

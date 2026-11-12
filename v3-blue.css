@@ -1,0 +1,28 @@
+/* 3.0 layout with the 2.0 medical blue palette. */
+:root{--lime:#99bfdd;--teal:#669cc9;--teal-light:#edf5fc}
+.has-tabs .hero{min-height:208px;background:#334f63;color:#fff;padding:24px}
+.has-tabs .hero::after{background:linear-gradient(90deg,rgba(20,40,57,.79),rgba(20,40,57,.45) 53%,rgba(20,40,57,.03))}
+.has-tabs .hero h1{font-size:29px;color:#fff;margin:12px 0 8px;max-width:75%;line-height:1.25}
+.has-tabs .hero .v3-hero-sub{display:block!important;color:#e6eef5;font-size:11px;margin:0;max-width:70%}
+.v3-hero-kicker{color:#d8e8f3}.v3-hero-cta{background:#a5c9e4;color:#254c69}.v3-hero-caption{color:#e1ecf5}
+.v3-week-summary{background:#eef5fb;border-color:#e0ebf5;color:#466984;border-radius:24px}
+.v3-summary-top strong{color:#486b85}.v3-summary-top small,.v3-summary-numbers>span{color:#829caf}
+.v3-summary-numbers>b{color:#35546d}.v3-summary-bar{background:#dce9f4}.v3-summary-bar>i{background:#8db6d7}
+.metric:nth-child(2) .v2-metric-icon{background:#f0f6fc;color:#85accb}
+.has-tabs .tracker-filter-card{border-color:#edf2f7;background:#fff}
+.tracker-filter-label{color:#849bae}
+.tracking-eyebrow{color:#96a8b7}.tracking-current h3{color:#496b85}.tracking-current p{color:#93a6b5}
+.has-tabs .tracking-group{border-color:#edf2f7;box-shadow:var(--shadow)}
+.has-tabs .tracking-group h3{color:#47677f}.tracking-group h3>span{background:#edf5fc;color:#86abc8}
+.tracking-field>label{color:#6f879a}.tracking-field>label>span{color:#96a8b6}
+.has-tabs .tracking-field input,.has-tabs .tracking-group textarea{background:#f8fafd;border-color:#e6eef6;color:#59758a}
+.tracking-field input::placeholder{color:#adbdca}.tracking-note-label{color:#8b9faf}.tracking-save{color:#819caf}
+.has-tabs #tracker>.v3-baseline{background:#fff}.tracking-guide{background:#fff}.tracking-guide p{color:#849bac}
+.v3-trend-empty{background:#f7fafd;border-color:#e3edf5;color:#91a7b8}.v3-trend-empty svg{color:#adcadf}.v3-trend-empty strong,.v3-trend-meta{color:#819db2}
+.has-tabs #weekly>.card{background:#fff;padding:24px}
+.has-tabs #weekly .grid h4::before{background:#a7c7df}
+.v3-week-picker>label{color:#8a9faf}.v3-week-picker select{background:#fff}
+.has-tabs #checkPercent{color:#41637c}
+.has-tabs .check:has(input:checked){background:#f2f7fc;border-color:#d3e4f2}.has-tabs .check:has(input:checked) span{color:#587e9c}
+.has-tabs #trackingBody .card{border-radius:24px}
+.app-update:not([hidden]){display:flex!important}

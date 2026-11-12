@@ -163,36 +163,32 @@ body.has-tabs .wrap{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="健康计划">
-<link rel="icon" type="image/svg+xml" href="./assets/health-icon.svg">
-<link rel="apple-touch-icon" sizes="180x180" href="./assets/health-icon-180.png">
-<link rel="manifest" href="./manifest.webmanifest?v=20261112-app3">
-<link rel="stylesheet" href="./mobile-app.css?v=20261112-app3">
+<link rel="icon" type="image/svg+xml" href="./assets/health-icon.svg?v=20261112-v3blue">
+<link rel="apple-touch-icon" sizes="180x180" href="./assets/health-icon-180.png?v=20261112-v3blue">
+
+<link rel="stylesheet" href="./mobile-app.css?v=20261112-v3blue">
+<link rel="stylesheet" href="./sports-theme.css?v=20261112-v3blue"><link rel="stylesheet" href="./medical-theme.css?v=20261112-v3blue"><link rel="stylesheet" href="./v3-blue.css?v=20261112-v3blue">
+<link rel="manifest" href="./manifest.webmanifest?v=20261112-v3blue">
 </head>
 <body>
-<header class="app-topbar no-print"><img src="./assets/health-icon.svg" class="app-brand" alt=""><div><div class="app-title">12周健康计划</div><div class="app-subtitle" id="appSubtitle">个人档案</div></div><button class="app-sync-button" id="appSyncButton" type="button" aria-haspopup="dialog" aria-controls="cloudSync" aria-expanded="false"><span class="app-sync-dot" aria-hidden="true"></span><span id="appSyncLabel">云端同步</span></button></header>
+<header class="app-topbar no-print"><img src="./assets/health-icon.svg?v=20261112-v3blue" class="app-brand" alt=""><div><div class="app-title">健康管理</div><div class="app-subtitle" id="appSubtitle">个人档案</div></div><button class="app-sync-button" id="appSyncButton" type="button" aria-haspopup="dialog" aria-controls="cloudSync" aria-expanded="false"><span class="app-sync-dot" aria-hidden="true"></span><span id="appSyncLabel">云端同步</span></button></header>
 <div class="app-update no-print" id="appUpdate" hidden><span>新版本已准备好</span><button id="appReload" type="button">刷新使用</button></div>
 <div class="wrap">
-<header class="hero">
-  <div class="eyebrow">PERSONAL HEALTH & FITNESS PLAN · 12 WEEKS</div>
-  <h1>12周健身与健康管理计划</h1>
-  <p>以医学安全为前提，逐步建立运动、饮食、睡眠和指标追踪习惯。目标是降低腰腹脂肪、尽量保留肌肉、改善体态与日常精力，而不是在12周内强行达到某个体重。</p>
-  <div class="hero-meta">
-    <span class="pill">男 · 34岁</span><span class="pill">182.5 cm</span><span class="pill">82.3 kg</span><span class="pill">目标体重 75 kg（中长期）</span><span class="pill">每周目标 3次训练（获准后）</span>
-  </div>
-</header>
+<header class="hero"><img class="v3-hero-photo" src="./assets/wellness-hero.png?v=20261112-v3blue" alt="自然光下在公园步行的生活方式场景"><div class="v3-hero-kicker">YOUR 12-WEEK PLAN</div><h1>让健康<br>成为日常。</h1><p class="v3-hero-sub">以健康为先，按自己的节奏。</p><div class="v3-hero-bottom"><a href="#training" class="v3-hero-cta">本周训练<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 18 18 6M6 6h12v12"/></svg></a><span class="v3-hero-caption">循序渐进 · 获准后执行</span></div></header>
 
 <div class="callout blue no-print" role="status" id="saveStatus">记录会先保存在当前浏览器；登录后可同步到同一账号的其他设备。建议定期备份。</div>
 
 
 
 <section id="overview" data-page="profile">
-  <div class="section-head"><div><h2>01 · 个人基线档案</h2><p class="sub">根据本次对话、InBody（2026-11-08）及实验室报告（2026-11-07）整理。</p></div><span class="tag">基线数据</span></div>
+  <div class="section-head"><div><h2>身体基线</h2><p class="sub">了解起点，关注接下来的变化。</p></div><span class="tag">基线数据</span></div>
   <div class="grid grid-4">
-    <div class="metric"><div class="label">体重</div><div class="value">82.3 kg</div><div class="note">中长期目标 75 kg</div></div>
-    <div class="metric"><div class="label">腰围</div><div class="value">101 cm</div><div class="note">腰高比约 0.55</div></div>
-    <div class="metric"><div class="label">体脂率</div><div class="value">25.2%</div><div class="note">脂肪量 20.7 kg</div></div>
-    <div class="metric"><div class="label">骨骼肌量</div><div class="value">34.9 kg</div><div class="note">去脂体重 61.6 kg</div></div>
+    <div class="metric"><span class="v2-metric-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h14v14H5zM8 7a4 4 0 0 1 8 0M12 10l2-2"/></svg></span><div class="label">体重</div><div class="value">82.3<span class="v2-unit">kg</span></div><div class="note">中长期目标 75 kg</div></div>
+    <div class="metric"><span class="v2-metric-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="10" rx="3"/><path d="M7 7v4M11 7v3M15 7v4"/></svg></span><div class="label">腰围</div><div class="value">101<span class="v2-unit">cm</span></div><div class="note">腰高比约 0.55</div></div>
+    <div class="metric"><span class="v2-metric-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c-2 4-7 8-7 12a7 7 0 0 0 14 0c0-4-5-8-7-12zM9 17c0 1 1 2 3 2"/></svg></span><div class="label">体脂率</div><div class="value">25.2<span class="v2-unit">%</span></div><div class="note">脂肪量 20.7 kg</div></div>
+    <div class="metric"><span class="v2-metric-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 14c2-2 3-4 4-6l3 1v4c3-1 6 0 6 3 0 3-4 4-8 4s-7-1-8-3l3-3zM11 8V4h4"/></svg></span><div class="label">骨骼肌量</div><div class="value">34.9<span class="v2-unit">kg</span></div><div class="note">去脂体重 61.6 kg</div></div>
   </div>
+<div class="v2-actions no-print" data-page="profile"><a class="v2-action" href="#training"><span class="v2-action-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8v8M3 10v4M18 8v8M21 10v4M6 12h12"/></svg></span><span><strong>本周训练</strong><small>查看训练安排</small></span></a><a class="v2-action" href="#tracker"><span class="v2-action-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4v16h16M8 15l4-5 4 3 4-7"/></svg></span><span><strong>身体记录</strong><small>更新健康指标</small></span></a></div><a class="v3-week-summary no-print" href="#weekly"><div class="v3-summary-top"><strong>本周执行</strong><small id="v3HomeWeek">第1周 11/08-11/14</small></div><div class="v3-summary-numbers"><b id="v3HomePercent">0%</b><span id="v3HomeCount">0 / 11 项已完成</span></div><div class="v3-summary-bar"><i id="v3HomeBar"></i></div></a>
   <div class="grid grid-2" style="margin-top:14px">
     <div class="card">
       <h3>InBody与身体情况</h3>
@@ -227,7 +223,7 @@ body.has-tabs .wrap{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))
 
 
 <section id="safety" data-page="profile">
-  <div class="section-head"><div><h2>02 · 医疗优先事项与运动安全</h2><p class="sub">先处理高优先级风险，再逐步增加训练量。</p></div><span class="tag red">优先完成</span></div>
+  <div class="section-head"><div><h2>医疗优先事项与运动安全</h2><p class="sub">先处理高优先级风险，再逐步增加训练量。</p></div><span class="tag red">优先完成</span></div>
   <div class="callout red">
     <strong>1. LDL-C 5.53 mmol/L：请尽快预约心内科或血脂专病门诊</strong>
     该数值达到严重高胆固醇血症常用评估阈值（≥4.9 mmol/L）。请医生评估继发原因、家族性高胆固醇血症可能性及是否需要降脂药物治疗。不要先靠健身观察数月，也不要自行买药或停药。
@@ -264,7 +260,7 @@ body.has-tabs .wrap{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))
 </section>
 
 <details class="app-roadmap" data-page="training"><summary>查看12周路线与阶段说明</summary><section id="roadmap" data-page="training">
-  <div class="section-head"><div><h2>03 · 12周路线图</h2><p class="sub">前2周以就医评估和低强度活动为主；后续训练只有在相关医生评估后、症状不被诱发且获准时才逐步执行。</p></div></div>
+  <div class="section-head"><div><h2>12周路线图</h2><p class="sub">前2周以就医评估和低强度活动为主；后续训练只有在相关医生评估后、症状不被诱发且获准时才逐步执行。</p></div></div>
   <div class="grid grid-3">
     <div class="card">
       <span class="tag amber">第1–2周</span><h3 style="margin-top:9px">医疗评估与建立基线</h3>
@@ -302,7 +298,7 @@ body.has-tabs .wrap{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))
 </section></details>
 
 <section id="training" data-page="training">
-  <div class="section-head"><div><h2>04 · 每周训练安排</h2><p class="sub">建议训练日：周一、周三、周五；其他日安排轻松步行/恢复。所有正式力量训练均以医疗评估及许可为前提。</p></div></div>
+  <div class="section-head"><div><h2>每周训练安排</h2><p class="sub">建议训练日：周一、周三、周五；其他日安排轻松步行/恢复。所有正式力量训练均以医疗评估及许可为前提。</p></div></div>
   <div class="callout red">
     <strong>医学评估前：只执行“阶段A”</strong>
     如果无胸部不适、异常气短、头晕，且步行不加重臀痛或麻木，可尝试平地轻松步行10–20分钟/次，每周约4–5天；强度以能完整交谈、主观强度2–3/10为准。每坐30–45分钟起身活动。不要为了完成计划而忍痛。
@@ -329,7 +325,7 @@ body.has-tabs .wrap{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))
 </section>
 
 <section id="nutrition" data-page="nutrition">
-  <div class="section-head"><div><h2>05 · 饮食执行标准</h2><p class="sub">以改善LDL、甘油三酯、尿酸和腰围为导向；不采用极端节食。</p></div></div>
+  <div class="section-head"><div><h2>饮食执行标准</h2><p class="sub">以改善LDL、甘油三酯、尿酸和腰围为导向；不采用极端节食。</p></div></div>
   <div class="grid grid-2">
     <div class="card">
       <h3>每餐餐盘法</h3>
@@ -376,7 +372,7 @@ body.has-tabs .wrap{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))
 </section>
 
 <section id="lifestyle" data-page="nutrition">
-  <div class="section-head"><div><h2>06 · 睡眠、戒烟与日常恢复</h2><p class="sub">这些是计划的核心内容，不是训练之外的附加项。</p></div></div>
+  <div class="section-head"><div><h2>睡眠、戒烟与日常恢复</h2><p class="sub">这些是计划的核心内容，不是训练之外的附加项。</p></div></div>
   <div class="grid grid-3">
     <div class="card">
       <h3>睡眠</h3>
@@ -410,36 +406,32 @@ body.has-tabs .wrap{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))
 </section>
 
 <section id="tracker" data-page="tracker">
-  <div class="section-head"><div><h2>07 · 12周身体指标追踪表</h2><p class="sub">在下表输入数据后会自动保存在当前浏览器；可导出CSV备份。请不要在公共电脑记录敏感健康信息。</p></div></div>
-  <div class="card">
-    <div class="form-grid">
+  <div class="section-head"><div><h2>指标追踪</h2><p class="sub">先选周次，再填写这一周。每周记录独立保存。</p></div></div>
+  <div class="card tracker-filter-card"><label class="tracker-filter-label" for="appTrackingWeek">选择记录周次</label><div id="trackerFilters"></div></div>
+  <div id="trackingBody" class="tracking-single-week"></div>
+  <details class="v3-baseline"><summary>查看 / 调整基线指标</summary><div class="form-grid">
       <div><label class="field" for="baseWeight">基线体重（kg）</label><input id="baseWeight" type="number" step="0.1" value="82.3"></div>
       <div><label class="field" for="baseWaist">基线腰围（cm）</label><input id="baseWaist" type="number" step="0.1" value="101"></div>
       <div><label class="field" for="baseBodyfat">基线体脂率（%）</label><input id="baseBodyfat" type="number" step="0.1" value="25.2"></div>
       <div><label class="field" for="baseMuscle">基线骨骼肌量（kg）</label><input id="baseMuscle" type="number" step="0.1" value="34.9"></div>
     </div>
-    <hr>
-    <div class="table-wrap">
-      <table id="trackingTable">
-        <thead><tr><th>周次</th><th>日期</th><th>体重周均值 kg</th><th>腰围 cm</th><th>血压 mmHg</th><th>睡眠 h/晚</th><th>PAP使用</th><th>吸烟 支/日</th><th>臀腿症状 0–10</th><th>步行/训练分钟</th><th>备注</th></tr></thead>
-        <tbody id="trackingBody"></tbody>
-      </table>
-    </div>
-    <div class="btn-row no-print">
+    </details>
+  <details class="tracking-guide"><summary>测量与记录说明</summary><p class="small">体重：建议每周晨起、如厕后、进食前测量3次，记录周平均；腰围每2周测一次（肚脐水平、自然呼吸、不收腹）；血压按医生建议测量。InBody每4–6周同设备同条件复测。血脂、尿酸按医生安排复查，不用每周自行检测。</p></details>
+  <div class="card tracking-tools"><h3>导出与备份</h3><div class="btn-row no-print">
       <button class="btn" id="exportCsv">导出追踪表 CSV</button>
       <button class="btn secondary" id="exportJson">备份全部记录 JSON</button>
       <button class="btn secondary" id="importJson">导入 JSON 备份</button><input type="file" id="backupFile" accept=".json,application/json" hidden>
       <button class="btn outline" id="printBtn">打印 / 保存PDF</button>
       <button class="btn danger" id="resetBtn">清空本机记录</button>
-    </div>
-    <p class="small">体重：建议每周晨起、如厕后、进食前测量3次，记录周平均；腰围每2周测一次（肚脐水平、自然呼吸、不收腹）；血压按医生建议测量。InBody每4–6周同设备同条件复测。血脂、尿酸按医生安排复查，不用每周自行检测。</p>
-  </div>
+    </div></div>
+  <div class="card v3-trend"><h3>体重趋势</h3><div id="v3TrendBody"></div></div>
 </section>
 
 <section id="weekly" data-page="weekly">
-  <div class="section-head"><div><h2>08 · 每周执行打卡</h2><p class="sub">每周完成情况可勾选；勾选状态会自动保存到本机浏览器。</p></div><span class="tag green">可持续记录</span></div>
-  <div class="card">
-    <div class="section-head"><div><h3>所选周执行进度</h3><label for="selectedWeek">记录周次</label> <select id="selectedWeek" aria-label="选择打卡周次"><option value="1">第1周</option><option value="2">第2周</option><option value="3">第3周</option><option value="4">第4周</option><option value="5">第5周</option><option value="6">第6周</option><option value="7">第7周</option><option value="8">第8周</option><option value="9">第9周</option><option value="10">第10周</option><option value="11">第11周</option><option value="12">第12周</option></select><p class="sub" id="checkSummary">0项完成</p></div><strong id="checkPercent">0%</strong></div>
+  <div class="section-head"><div><h2>每周执行打卡</h2><p class="sub">把健康习惯落到每一周，按自己的节奏坚持。</p></div><span class="tag green">可持续记录</span></div>
+  <div class="v3-week-picker"><label for="selectedWeek">记录周次</label><select id="selectedWeek" aria-label="选择打卡周次"><option value="1">第1周 11/08-11/14</option><option value="2">第2周 11/15-11/21</option><option value="3">第3周 11/22-11/28</option><option value="4">第4周 11/29-12/05</option><option value="5">第5周 12/06-12/12</option><option value="6">第6周 12/13-12/19</option><option value="7">第7周 12/20-12/26</option><option value="8">第8周 12/27-01/02</option><option value="9">第9周 01/03-01/09</option><option value="10">第10周 01/10-01/16</option><option value="11">第11周 01/17-01/23</option><option value="12">第12周 01/24-01/30</option></select></div>
+<div class="card">
+    <div class="section-head"><div><h3>本周完成度</h3><p class="sub" id="checkSummary">0项完成</p></div><strong id="checkPercent">0%</strong></div>
     <div class="progress"><span id="checkProgress"></span></div>
     <div class="grid grid-2" style="margin-top:14px">
       <div>
@@ -473,7 +465,7 @@ body.has-tabs .wrap{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))
 </section>
 
 <section id="review" data-page="weekly">
-  <div class="section-head"><div><h2>09 · 第12周复盘标准</h2><p class="sub">评价重点是健康管理是否真正落地，而非只看体重。</p></div></div>
+  <div class="section-head"><div><h2>第12周复盘标准</h2><p class="sub">评价重点是健康管理是否真正落地，而非只看体重。</p></div></div>
   <div class="card">
     <div class="checklist">
       <label class="check"><input type="checkbox" data-save="review-med"><span>完成心内科/血脂管理评估，并按医嘱执行治疗和复查</span></label>
@@ -542,7 +534,7 @@ function restoreInputs(){
 }
 function weekDates(start,week){
   if(!start)return "待设置";
-  const d=new Date(start+"T12:00:00");d.setDate(d.getDate()+(week-1)*7);
+  const d=new Date(start+"T12:00:00");d.setDate(d.getDate()-d.getDay()+(week-1)*7);
   const e=new Date(d);e.setDate(e.getDate()+6);
   const fmt=x=>`${x.getFullYear()}-${String(x.getMonth()+1).padStart(2,"0")}-${String(x.getDate()).padStart(2,"0")}`;
   return fmt(d)+" 至 "+fmt(e);
@@ -674,31 +666,37 @@ function renderPlans(){
   });
 }
 function renderTracking(){
-  const body=$("trackingBody");
-  body.innerHTML=Array.from({length:12},(_,i)=>{
-    const n=i+1;
-    return `<tr>
-      <td><b>第${n}周</b></td><td class="date-cell">${weekDates($("startDate").value,n)}</td>
-      <td><input aria-label="第${n}周体重" data-track="w${n}" data-key="weight" type="number" step="0.1" placeholder="—"></td>
-      <td><input aria-label="第${n}周腰围" data-track="w${n}" data-key="waist" type="number" step="0.1" placeholder="隔周"></td>
-      <td><input aria-label="第${n}周血压" data-track="w${n}" data-key="bp" type="text" placeholder="如 120/80"></td>
-      <td><input aria-label="第${n}周睡眠" data-track="w${n}" data-key="sleep" type="number" step="0.1" placeholder="—"></td>
-      <td><input aria-label="第${n}周PAP" data-track="w${n}" data-key="pap" type="text" placeholder="小时/晚或未开始"></td>
-      <td><input aria-label="第${n}周吸烟" data-track="w${n}" data-key="smoke" type="number" step="1" placeholder="支/日"></td>
-      <td><input aria-label="第${n}周症状" data-track="w${n}" data-key="symptom" type="number" min="0" max="10" step="1" placeholder="0–10"></td>
-      <td><input aria-label="第${n}周活动" data-track="w${n}" data-key="activity" type="number" step="5" placeholder="分钟"></td>
-      <td><input aria-label="第${n}周备注" data-track="w${n}" data-key="notes" type="text" placeholder="备注"></td>
-    </tr>`;
-  }).join("");
-  document.querySelectorAll("[data-track]").forEach(el=>{
+  const body=$("trackingBody"),n=currentWeek();
+  body.dataset.week=String(n);
+  const field=(key,label,unit,type,placeholder,attributes="",wide=false)=>`<div class="tracking-field${wide?' tracking-field-wide':''}"><label for="track-${key}">${label}${unit?`<span>${unit}</span>`:''}</label><input id="track-${key}" aria-label="第${n}周${key==='weight'?'体重':label}" data-track="w${n}" data-key="${key}" type="${type}" placeholder="${placeholder}" ${attributes}></div>`;
+  body.innerHTML=`
+    <div class="tracking-current"><div><span class="tracking-eyebrow">当前填写</span><h3>第${n}周身体记录</h3><p>${weekDates($("startDate").value,n)}</p></div><span class="tag green">单周填写</span></div>
+    <div class="card tracking-group"><h3><span>01</span>身体测量</h3><div class="tracking-fields">
+      ${field('weight','体重周均值','kg','number','填写周均体重','min="0" step="0.1" inputmode="decimal"')}
+      ${field('waist','腰围','cm','number','隔周测量一次','min="0" step="0.1" inputmode="decimal"')}
+      ${field('bp','血压','mmHg','text','例如 120/80','',true)}
+    </div></div>
+    <div class="card tracking-group"><h3><span>02</span>睡眠与生活习惯</h3><div class="tracking-fields">
+      ${field('sleep','平均睡眠','小时 / 晚','number','例如 7.5','min="0" max="24" step="0.1" inputmode="decimal"')}
+      ${field('smoke','平均吸烟量','支 / 日','number','例如 0','min="0" step="1" inputmode="numeric"')}
+      ${field('pap','PAP 使用情况','','text','填写小时 / 晚，或未开始','',true)}
+    </div></div>
+    <div class="card tracking-group"><h3><span>03</span>症状与活动</h3><div class="tracking-fields">
+      ${field('symptom','臀腿症状','0–10 分','number','0–10','min="0" max="10" step="1" inputmode="numeric"')}
+      ${field('activity','本周活动时长','分钟','number','累计分钟数','min="0" step="5" inputmode="numeric"')}
+    </div></div>
+    <div class="card tracking-group"><h3><span>04</span>本周备注</h3><label class="tracking-note-label" for="track-notes">身体变化、就诊反馈或其他需要留意的情况</label><textarea id="track-notes" aria-label="第${n}周备注" data-track="w${n}" data-key="notes" placeholder="按需记录，没有可以留空"></textarea></div>
+    <p class="tracking-save" id="trackingSaveStatus" role="status">输入后自动保存，切换周次可查看历史记录。</p>`;
+  body.querySelectorAll("[data-track]").forEach(el=>{
     const key=el.dataset.track+"_"+el.dataset.key;
     if(state[key]!==undefined)el.value=state[key];
-    el.addEventListener("input",()=>{state[key]=el.value;saveState()});
+    el.addEventListener("input",()=>{state[key]=el.value;const saved=saveState();$("trackingSaveStatus").textContent=saved?"已自动保存本周记录。":"保存失败，请及时导出备份。"});
   });
 }
+
 function refreshDates(){
   document.querySelectorAll(".date-cell").forEach((el,i)=>el.textContent=weekDates($("startDate").value,i+1));
-  renderPlans();
+  renderPlans();renderTracking();
 }
 function updateProgress(){
   const checks=[...document.querySelectorAll('#habitChecks input[type="checkbox"],#activityChecks input[type="checkbox"]')];
@@ -731,7 +729,7 @@ function validateBackup(data){
  if(!data||typeof data!=="object"||Array.isArray(data))throw Error("备份必须是 JSON 记录对象。");
  const allowed=new Set(["startDate","baseWeight","baseWaist","baseBodyfat","baseMuscle","selectedWeek"]);
  document.querySelectorAll("input[data-save]").forEach(el=>allowed.add(el.dataset.save));
- document.querySelectorAll("[data-track]").forEach(el=>allowed.add(el.dataset.track+"_"+el.dataset.key));
+ for(let week=1;week<=12;week++)for(const field of ["weight","waist","bp","sleep","pap","smoke","symptom","activity","notes"])allowed.add("w"+week+"_"+field);
  for(let w=1;w<=12;w++){
    allowed.add("weeklog_"+w+"_weeklyNotes");
    document.querySelectorAll('#habitChecks input,#activityChecks input').forEach(el=>allowed.add("weeklog_"+w+"_"+el.dataset.save));
@@ -767,11 +765,12 @@ $("resetBtn").addEventListener("click",()=>{
   }
 });
 </script>
-<script src="./assets/supabase.min.js?v=20261112-app3"></script>
-<script src="./sync-core.js?v=20261112-app3"></script>
-<script src="./cloud-sync.js?v=20261112-app3"></script>
+
+<script src="./sync-core.js?v=20261112-v3blue"></script>
+<script src="./weekly-dates.js?v=20261112-v3blue"></script><script src="./assets/supabase.min.js?v=20261112-v3blue"></script><script src="./cloud-sync.js?v=20261112-v3blue"></script>
 <nav class="bottom-nav no-print" id="bottomNav" aria-label="主要导航" hidden><button type="button" data-view="profile" aria-controls="overview safety cloudSync"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3"/><path d="M5 21v-2a7 7 0 0 1 14 0v2M4 3h16"/></svg><span>个人档案</span></button><button type="button" data-view="training" aria-controls="roadmap training"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8v8M3 10v4M18 8v8M21 10v4M6 12h12"/></svg><span>训练安排</span></button><button type="button" data-view="nutrition" aria-controls="nutrition lifestyle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3v6M4 3v4a3 3 0 0 0 6 0V3M7 10v11M20 3c-4 2-5 5-5 9h5M20 3v18"/></svg><span>饮食标准</span></button><button type="button" data-view="tracker" aria-controls="tracker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4v16h17M8 15l4-5 4 3 5-7"/></svg><span>指标追踪</span></button><button type="button" data-view="weekly" aria-controls="weekly review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="3"/><path d="M8 3v4M16 3v4M4 10h16M8 15l3 3 5-5"/></svg><span>每周打卡</span></button></nav>
-<script src="./mobile-tabs.js?v=20261112-app3"></script>
-<script src="./mobile-app.js?v=20261112-app3"></script>
+<script src="./mobile-tabs.js?v=20261112-v3blue"></script>
+<script src="./mobile-app.js?v=20261112-v3blue"></script>
+<script src="./sports-ui.js?v=20261112-v3blue"></script>
 </body>
 </html>

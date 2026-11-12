@@ -26,7 +26,9 @@
     });
     if (oldDate !== $('startDate').value) refreshDates();
     if (document.activeElement !== $('weeklyNotes')) $('weeklyNotes').value = state[recordKey('weeklyNotes')] || '';
+    if(document.getElementById("trackingBody")?.dataset.week!==String(currentWeek()))renderTracking();
     updateProgress();
+    if(typeof CustomEvent==="function")document.dispatchEvent(new CustomEvent("health-state-rendered"));
   }
   function apply(next) {
     const selectedWeek = String(currentWeek());
