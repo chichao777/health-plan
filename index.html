@@ -14,7 +14,7 @@
   --green:#176b48;--green-bg:#eaf6ef;--blue-bg:#edf4fa;
   --radius:16px;--shadow:0 8px 28px rgba(20,38,55,.06);
 }
-*{box-sizing:border-box}
+*{box-sizing:border-box}[hidden]{display:none!important}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
 a{color:var(--teal)}
@@ -65,7 +65,7 @@ tr:last-child td{border-bottom:0}
 .list li{margin:5px 0}
 hr{border:0;border-top:1px solid var(--line);margin:16px 0}
 input,select,textarea,button{font:inherit}
-input[type="text"],input[type="number"],input[type="date"],select,textarea{
+input[type="text"],input[type="email"],input[type="number"],input[type="date"],select,textarea{
   width:100%;border:1px solid #cfd6df;border-radius:9px;padding:9px 10px;background:#fff;color:var(--ink)
 }
 textarea{min-height:64px;resize:vertical}
@@ -108,6 +108,7 @@ summary{cursor:pointer;padding:13px 15px;font-weight:700;color:var(--navy)}
  .hero{padding:24px 20px}
 }
 @media(max-width:560px){
+ #cloudLogin{grid-template-columns:1fr} #cloudEmail,#cloudCode{font-size:16px} #cloudAccount,#cloudConflictDetails{overflow-wrap:anywhere}
  .wrap{padding:14px 12px 40px}
  .grid-2,.grid-4{grid-template-columns:1fr 1fr}
  .card{padding:15px}
@@ -143,7 +144,20 @@ summary{cursor:pointer;padding:13px 15px;font-weight:700;color:var(--navy)}
   </div>
 </header>
 
-<div class="callout blue no-print" role="status" id="saveStatus">记录保存在当前浏览器；手机和电脑暂不自动同步。请定期备份，可在另一设备导入。</div>
+<div class="callout blue no-print" role="status" id="saveStatus">记录会先保存在当前浏览器；登录后可同步到同一账号的其他设备。建议定期备份。</div>
+<section class="card no-print" id="cloudSync" aria-labelledby="cloudHeading">
+<h2 id="cloudHeading">云端同步</h2>
+<p id="cloudAccount" class="sub">用同一个邮箱登录，即可在手机与电脑之间同步。</p>
+<div id="cloudLogin" class="grid grid-2" style="margin-top:14px">
+ <div><label class="field" for="cloudEmail">登录邮箱</label><input type="email" id="cloudEmail" autocomplete="email" required placeholder="你的邮箱"><button class="btn secondary" id="cloudSendCode" style="margin-top:8px">发送登录邮件</button></div>
+ <div><label class="field" for="cloudCode">邮件验证码</label><input type="text" id="cloudCode" autocomplete="one-time-code" inputmode="numeric" placeholder="输入邮件中的验证码"><button class="btn" id="cloudVerify" style="margin-top:8px">验证并登录</button></div>
+</div>
+<details id="cloudLinkHelp"><summary>邮件里只有登录链接？</summary><div class="details-body"><p class="small">复制邮件中的完整登录链接，粘贴到这里验证，无需跳转到其他页面。链接用于本次登录，不会保存到健康记录。</p><label class="field" for="cloudMagicLink">邮件登录链接</label><input type="text" id="cloudMagicLink" autocomplete="off" placeholder="粘贴邮件中的登录链接"><button class="btn secondary" id="cloudVerifyLink" style="margin-top:8px">验证登录链接</button></div></details>
+<div id="cloudSignedIn" hidden><div class="btn-row"><button class="btn" id="cloudSyncNow">立即同步</button><button class="btn outline" id="cloudSignOut">退出登录</button></div></div>
+<p id="cloudStatus" role="status" aria-live="polite">正在恢复登录状态…</p>
+<div id="cloudConflicts" class="callout amber" hidden><strong>有记录需要选择</strong><p id="cloudConflictDetails" style="white-space:pre-line"></p><div class="btn-row"><button class="btn" id="cloudKeepLocal">保留本机冲突项</button><button class="btn secondary" id="cloudKeepRemote">使用云端冲突项</button></div></div>
+<p class="small">登录后，打卡、指标和总结会保存到你的 Supabase 账号记录中，仅该账号可读写。每15秒及返回页面时检查更新；离线修改会暂存本机。请在个人设备登录，并定期导出备份。</p>
+</section>
 <nav class="no-print">
   <a href="#overview">个人档案</a><a href="#safety">安全与就医</a><a href="#roadmap">12周路线</a><a href="#training">训练安排</a><a href="#nutrition">饮食标准</a><a href="#lifestyle">睡眠与戒烟</a><a href="#tracker">指标追踪</a><a href="#weekly">每周打卡</a>
 </nav>
@@ -461,12 +475,12 @@ summary{cursor:pointer;padding:13px 15px;font-weight:700;color:var(--navy)}
 </div>
 
 <script>
-const STORAGE_KEY = "healthPlan12w_v1";
+let STORAGE_KEY = "healthPlan12w_v1";
 const $ = (id)=>document.getElementById(id);
-const loadState = ()=>{try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||"{}")}catch(e){return {}}};
+const loadState = ()=>{try{const value=JSON.parse(localStorage.getItem(STORAGE_KEY)||"{}");return value&&typeof value==="object"&&!Array.isArray(value)?value:{}}catch(e){return {}}};
 let state = loadState();
 function saveState(){
-  try {localStorage.setItem(STORAGE_KEY,JSON.stringify(state));$("saveStatus").textContent="已保存到当前浏览器 · 手机和电脑暂不自动同步，可用 JSON 备份转移记录。";return true}
+  try {localStorage.setItem(STORAGE_KEY,JSON.stringify(state));$("saveStatus").textContent="已保存到当前浏览器 · 云端进度见上方同步状态。";return true}
   catch(e){$("saveStatus").textContent="保存失败，请立即导出 JSON 备份，避免关闭页面后丢失记录。";return false}
 }
 function currentWeek(){return Math.min(12,Math.max(1,Number(state.selectedWeek)||1))}
@@ -715,5 +729,8 @@ $("resetBtn").addEventListener("click",()=>{
   }
 });
 </script>
+<script src="./assets/supabase.min.js"></script>
+<script src="./sync-core.js"></script>
+<script src="./cloud-sync.js"></script>
 </body>
 </html>
