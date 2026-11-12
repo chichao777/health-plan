@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="color-scheme" content="light">
+<title>12周健身与健康管理计划</title>
+<style>
+:root{
+  --ink:#1f2937;--muted:#667085;--line:#e5e7eb;--paper:#ffffff;
+  --bg:#f4f6f8;--navy:#18324b;--teal:#167c80;--teal-light:#e8f4f3;
+  --amber:#a65b08;--amber-bg:#fff5e6;--red:#a62e2e;--red-bg:#fff0ef;
+  --green:#176b48;--green-bg:#eaf6ef;--blue-bg:#edf4fa;
+  --radius:16px;--shadow:0 8px 28px rgba(20,38,55,.06);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+a{color:var(--teal)}
+.wrap{max-width:1120px;margin:0 auto;padding:28px 20px 64px}
+.hero{background:linear-gradient(135deg,#18324b,#245d68);color:#fff;border-radius:24px;padding:30px 32px;box-shadow:var(--shadow)}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#c5e5e3;font-weight:700}
+h1{font-size:clamp(28px,4vw,40px);line-height:1.18;margin:10px 0 12px}
+.hero p{color:#e4eff3;max-width:820px;margin:0}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.pill{border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:6px 11px;font-size:12px;color:#f3f8fa}
+nav{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 24px}
+nav a{background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 13px;text-decoration:none;font-size:13px;color:var(--navy)}
+section{scroll-margin-top:18px;margin-top:24px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin:0 0 12px}
+h2{font-size:23px;color:var(--navy);margin:0;line-height:1.3}
+h3{font-size:17px;color:var(--navy);margin:0 0 8px}
+h4{font-size:15px;margin:0 0 6px}
+.sub{font-size:13px;color:var(--muted);margin:4px 0 0}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.grid{display:grid;gap:14px}
+.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.metric{padding:16px;border:1px solid var(--line);border-radius:14px;background:#fff}
+.metric .label{font-size:12px;color:var(--muted)}
+.metric .value{font-size:27px;font-weight:750;color:var(--navy);line-height:1.25;margin:5px 0}
+.metric .note{font-size:12px;color:var(--muted)}
+.callout{border-radius:14px;padding:15px 17px;margin:12px 0;border:1px solid}
+.callout.red{background:var(--red-bg);border-color:#f3c7c4;color:#722626}
+.callout.amber{background:var(--amber-bg);border-color:#f1d5a8;color:#75440c}
+.callout.green{background:var(--green-bg);border-color:#c7e5d2;color:#155b3c}
+.callout.blue{background:var(--blue-bg);border-color:#d2e1ee;color:#254b69}
+.callout strong{display:block;margin-bottom:4px}
+.small{font-size:12px;color:var(--muted)}
+.muted{color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:10px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:#f7f9fb;color:#526174;font-weight:700}
+tr:last-child td{border-bottom:0}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+.table-wrap table{min-width:620px}
+.kpi{font-weight:750;color:var(--navy)}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;background:#edf1f5;color:#455468}
+.tag.red{background:#ffe4e1;color:#9d3029}
+.tag.amber{background:#fff0d6;color:#89520c}
+.tag.green{background:#e4f4ea;color:#176b48}
+.list{margin:8px 0 0;padding-left:20px}
+.list li{margin:5px 0}
+hr{border:0;border-top:1px solid var(--line);margin:16px 0}
+input,select,textarea,button{font:inherit}
+input[type="text"],input[type="number"],input[type="date"],select,textarea{
+  width:100%;border:1px solid #cfd6df;border-radius:9px;padding:9px 10px;background:#fff;color:var(--ink)
+}
+textarea{min-height:64px;resize:vertical}
+label.field{display:block;font-size:12px;color:var(--muted);margin-bottom:5px}
+.form-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.btn{border:0;border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer;background:var(--teal);color:#fff}
+.btn.secondary{background:#e9eef2;color:#34465a}
+.btn.outline{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.btn.danger{background:#9d3934}
+.btn-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.progress{height:9px;background:#e8edf1;border-radius:999px;overflow:hidden}
+.progress>span{display:block;height:100%;background:var(--teal);width:0;transition:width .2s}
+.checklist{display:grid;gap:8px}
+.check{display:flex;align-items:flex-start;gap:9px;padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:#fff}
+.check input{margin-top:4px;accent-color:var(--teal)}
+.check span{flex:1}
+.week-card{border:1px solid var(--line);border-radius:15px;background:#fff;overflow:hidden}
+.week-title{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;background:#f7fafb;border-bottom:1px solid var(--line)}
+.week-title strong{color:var(--navy)}
+.week-body{padding:16px}
+.week-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.day{border:1px solid var(--line);border-radius:11px;padding:12px;background:#fff}
+.day b{display:block;color:var(--teal);font-size:13px;margin-bottom:5px}
+.day p{margin:0;font-size:13px}
+.week-check{margin-top:12px}
+details{border:1px solid var(--line);border-radius:12px;background:#fff;margin:9px 0}
+summary{cursor:pointer;padding:13px 15px;font-weight:700;color:var(--navy)}
+.details-body{padding:0 15px 15px}
+.badge-row{display:flex;flex-wrap:wrap;gap:7px}
+.badge{font-size:11px;padding:4px 8px;border-radius:7px;background:#eef3f6;color:#475569}
+.sticky-actions{position:sticky;bottom:10px;display:flex;justify-content:flex-end;gap:8px;z-index:5;margin-top:18px}
+.sticky-actions .btn{box-shadow:0 4px 15px rgba(0,0,0,.12)}
+.notice{font-size:12px;color:var(--muted)}
+.footer{margin-top:30px;padding:18px 4px;color:var(--muted);font-size:12px}
+@media(max-width:800px){
+ .grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .grid-3{grid-template-columns:1fr}
+ .form-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .week-grid{grid-template-columns:1fr}
+ .hero{padding:24px 20px}
+}
+@media(max-width:560px){
+ .wrap{padding:14px 12px 40px}
+ .grid-2,.grid-4{grid-template-columns:1fr 1fr}
+ .card{padding:15px}
+ .section-head{display:block}
+ h2{font-size:20px}
+ .form-grid{grid-template-columns:1fr 1fr}
+ th,td{padding:8px 7px}
+}
+@media print{
+ body{background:#fff;font-size:11px}
+ .wrap{max-width:none;padding:0}
+ .hero{background:#fff!important;color:#111;border:1px solid #bbb;box-shadow:none;padding:18px}
+ .hero p,.eyebrow,.pill{color:#333}
+ .pill{border-color:#aaa}
+ nav,.sticky-actions,.btn-row,.no-print{display:none!important}
+ .card,.metric,.week-card{box-shadow:none;break-inside:avoid}
+ section{break-inside:auto;margin-top:15px}
+ details{break-inside:avoid}
+ details:not([open]) .details-body{display:block}
+ input,textarea,select{border:0!important;padding:2px!important}
+ .callout{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <div class="eyebrow">PERSONAL HEALTH & FITNESS PLAN · 12 WEEKS</div>
+  <h1>12周健身与健康管理计划</h1>
+  <p>以医学安全为前提，逐步建立运动、饮食、睡眠和指标追踪习惯。目标是降低腰腹脂肪、尽量保留肌肉、改善体态与日常精力，而不是在12周内强行达到某个体重。</p>
+  <div class="hero-meta">
+    <span class="pill">男 · 34岁</span><span class="pill">182.5 cm</span><span class="pill">82.3 kg</span><span class="pill">目标体重 75 kg（中长期）</span><span class="pill">每周目标 3次训练（获准后）</span>
+  </div>
+</header>
+
+<div class="callout blue no-print" role="status" id="saveStatus">记录保存在当前浏览器；手机和电脑暂不自动同步。请定期备份，可在另一设备导入。</div>
+<nav class="no-print">
+  <a href="#overview">个人档案</a><a href="#safety">安全与就医</a><a href="#roadmap">12周路线</a><a href="#training">训练安排</a><a href="#nutrition">饮食标准</a><a href="#lifestyle">睡眠与戒烟</a><a href="#tracker">指标追踪</a><a href="#weekly">每周打卡</a>
+</nav>
+
+<section id="overview">
+  <div class="section-head"><div><h2>01 · 个人基线档案</h2><p class="sub">根据本次对话、InBody（2026-11-08）及实验室报告（2026-11-07）整理。</p></div><span class="tag">基线数据</span></div>
+  <div class="grid grid-4">
+    <div class="metric"><div class="label">体重</div><div class="value">82.3 kg</div><div class="note">中长期目标 75 kg</div></div>
+    <div class="metric"><div class="label">腰围</div><div class="value">101 cm</div><div class="note">腰高比约 0.55</div></div>
+    <div class="metric"><div class="label">体脂率</div><div class="value">25.2%</div><div class="note">脂肪量 20.7 kg</div></div>
+    <div class="metric"><div class="label">骨骼肌量</div><div class="value">34.9 kg</div><div class="note">去脂体重 61.6 kg</div></div>
+  </div>
+  <div class="grid grid-2" style="margin-top:14px">
+    <div class="card">
+      <h3>InBody与身体情况</h3>
+      <table>
+        <tr><td>身高 / 年龄</td><td class="kpi">182.5 cm / 34岁</td></tr>
+        <tr><td>BMI</td><td class="kpi">24.7</td></tr>
+        <tr><td>内脏脂肪等级</td><td class="kpi">8</td></tr>
+        <tr><td>基础代谢率</td><td class="kpi">1701 kcal</td></tr>
+        <tr><td>InBody评分</td><td class="kpi">70分</td></tr>
+        <tr><td>体型方向</td><td class="kpi">匀称、肩背有轮廓</td></tr>
+      </table>
+      <p class="small">InBody受水分、进食、运动和测量条件影响；建议每4–6周在相近条件下复测，不把单次变化当作确定的肌肉增减。</p>
+    </div>
+    <div class="card">
+      <h3>实验室与睡眠监测基线</h3>
+      <table>
+        <tr><td>总胆固醇 TC</td><td class="kpi">7.21 mmol/L</td></tr>
+        <tr><td>LDL-C</td><td class="kpi" style="color:#a62e2e">5.53 mmol/L</td></tr>
+        <tr><td>甘油三酯 TG</td><td class="kpi" style="color:#a62e2e">3.53 mmol/L</td></tr>
+        <tr><td>HDL-C / non-HDL-C</td><td class="kpi">1.00 / 6.21 mmol/L</td></tr>
+        <tr><td>尿酸 UA</td><td class="kpi">505 μmol/L</td></tr>
+        <tr><td>AHI</td><td class="kpi" style="color:#a62e2e">30.7（重度）</td></tr>
+      </table>
+      <p class="small">TST 26.6：用户转述的项目名称/含义待核对睡眠监测原报告，不据此单独作判断。</p>
+    </div>
+  </div>
+  <div class="callout amber">
+    <strong>本计划的定位</strong>
+    这是生活方式与训练管理工具，不是诊断或处方。当前LDL-C、重度睡眠呼吸暂停及持续的双侧臀腿症状，均需要医疗评估；运动计划须按医生/康复专业人员意见解锁推进。
+  </div>
+</section>
+
+<section id="safety">
+  <div class="section-head"><div><h2>02 · 医疗优先事项与运动安全</h2><p class="sub">先处理高优先级风险，再逐步增加训练量。</p></div><span class="tag red">优先完成</span></div>
+  <div class="callout red">
+    <strong>1. LDL-C 5.53 mmol/L：请尽快预约心内科或血脂专病门诊</strong>
+    该数值达到严重高胆固醇血症常用评估阈值（≥4.9 mmol/L）。请医生评估继发原因、家族性高胆固醇血症可能性及是否需要降脂药物治疗。不要先靠健身观察数月，也不要自行买药或停药。
+  </div>
+  <div class="callout red">
+    <strong>2. AHI 30.7：重度睡眠呼吸暂停，目前未使用PAP/CPAP</strong>
+    尽快复诊睡眠医学科/呼吸科，讨论CPAP或APAP治疗、面罩适配和随访。减脂不能替代睡眠呼吸暂停治疗。若白天明显困倦，避免疲劳驾驶或操作危险设备。
+  </div>
+  <div class="callout amber">
+    <strong>3. 双侧臀部疼痛与大腿后侧麻木：先完成骨科/康复医学科评估</strong>
+    症状约3个月，久坐超过1小时出现，站起活动后缓解；尚未做腰椎/神经系统评估。不能仅凭“久坐引起”排除神经相关问题。暂缓负重深蹲、硬拉、冲刺、强力臀腿/神经拉伸，以及任何诱发麻木的动作。
+  </div>
+  <div class="callout amber">
+    <strong>4. 其他需要医生纳入管理的因素</strong>
+    TG 3.53 mmol/L、尿酸505 μmol/L、每日吸烟约15支、腰围101cm；父亲有冠心病/心肌梗死（55–65岁）。男性一级亲属55岁前通常属于早发家族史；55–65岁不能一概称为早发，但仍应如实告知医生。可询问是否需要ApoB、Lp(a)、TSH、空腹血糖/HbA1c及家族性高胆固醇血症评估。
+  </div>
+  <div class="card">
+    <h3>就医与解锁清单</h3>
+    <p class="small">勾选仅用于个人记录，不代表医疗事项已被系统验证。</p>
+    <div class="checklist" id="medicalChecks">
+      <label class="check"><input type="checkbox" data-save="med-cardiology"><span>心内科/血脂专病门诊：讨论LDL-C 5.53及降脂治疗</span></label>
+      <label class="check"><input type="checkbox" data-save="med-labs"><span>与医生讨论复查血脂、ApoB、Lp(a)、TSH、血糖/HbA1c等</span></label>
+      <label class="check"><input type="checkbox" data-save="med-sleep"><span>睡眠医学科/呼吸科：落实PAP/CPAP评估与治疗计划</span></label>
+      <label class="check"><input type="checkbox" data-save="med-neuro"><span>骨科/康复医学科：评估双侧臀痛及大腿后侧麻木</span></label>
+      <label class="check"><input type="checkbox" data-save="med-bp"><span>建立家庭血压记录（如有合适的上臂式血压计）</span></label>
+      <label class="check"><input type="checkbox" data-save="med-smoking"><span>制定戒烟计划，必要时咨询戒烟门诊/专业人员</span></label>
+    </div>
+  </div>
+  <div class="callout red">
+    <strong>立即停止运动并及时就医的情况</strong>
+    运动中出现胸痛/胸闷、异常气短、晕厥或接近晕厥、明显心悸，应立即停止并寻求医疗帮助。若出现会阴/鞍区麻木、大小便控制异常或尿潴留、进行性腿部无力/脚下垂，应立即急诊评估。
+  </div>
+  <p class="small">没有运动症状是有利信息，但不能据此排除心血管疾病或自动获得高强度训练许可。是否需要运动负荷试验由医生结合病史、体检和风险决定。</p>
+</section>
+
+<section id="roadmap">
+  <div class="section-head"><div><h2>03 · 12周路线图</h2><p class="sub">前2周以就医评估和低强度活动为主；后续训练只有在相关医生评估后、症状不被诱发且获准时才逐步执行。</p></div></div>
+  <div class="grid grid-3">
+    <div class="card">
+      <span class="tag amber">第1–2周</span><h3 style="margin-top:9px">医疗评估与建立基线</h3>
+      <p>预约心内科、睡眠医学科和骨科/康复科；轻松平地步行；记录症状、血压、睡眠和饮食。不做正式负重训练。</p>
+    </div>
+    <div class="card">
+      <span class="tag">第3–4周</span><h3 style="margin-top:9px">获准后重新入门</h3>
+      <p>若医生许可且臀腿麻木不被诱发，开始低强度支撑式上肢训练和轻有氧。下肢/核心动作由康复专业人员按评估结果选择。</p>
+    </div>
+    <div class="card">
+      <span class="tag">第5–8周</span><h3 style="margin-top:9px">建立规律训练</h3>
+      <p>获准后逐渐形成每周3次结构；先增加动作熟悉度和稳定性，不追求力竭或大重量。</p>
+    </div>
+    <div class="card">
+      <span class="tag">第9–10周</span><h3 style="margin-top:9px">温和进阶</h3>
+      <p>在无症状、恢复良好且获准的前提下，小幅增加组数或时间；每次只调整一个变量。</p>
+    </div>
+    <div class="card">
+      <span class="tag">第11–12周</span><h3 style="margin-top:9px">巩固与复盘</h3>
+      <p>总结腰围、体重趋势、训练耐受、睡眠治疗和医疗复查情况，制定下一阶段目标。</p>
+    </div>
+    <div class="card">
+      <span class="tag green">12周成果定义</span><h3 style="margin-top:9px">形成可持续系统</h3>
+      <p>完成必要医疗评估、建立饮食与运动习惯、腰围/体重趋势改善、尽量保留肌肉。75kg是中长期目标，不是12周硬性任务。</p>
+    </div>
+  </div>
+  <div class="callout blue">
+    <strong>日期设置</strong>
+    选择计划开始日期后，下方每周会自动显示日期范围。若你要等就医评估后才开始，请把开始日期改为实际启动日。
+    <div class="form-grid" style="max-width:500px;margin-top:10px">
+      <div><label class="field" for="startDate">计划开始日期</label><input id="startDate" type="date" value="2026-11-12"></div>
+      <div><label class="field">当前阶段</label><input type="text" value="第1–2周：医疗评估" readonly></div>
+    </div>
+  </div>
+</section>
+
+<section id="training">
+  <div class="section-head"><div><h2>04 · 每周训练安排</h2><p class="sub">建议训练日：周一、周三、周五；其他日安排轻松步行/恢复。所有正式力量训练均以医疗评估及许可为前提。</p></div></div>
+  <div class="callout red">
+    <strong>医学评估前：只执行“阶段A”</strong>
+    如果无胸部不适、异常气短、头晕，且步行不加重臀痛或麻木，可尝试平地轻松步行10–20分钟/次，每周约4–5天；强度以能完整交谈、主观强度2–3/10为准。每坐30–45分钟起身活动。不要为了完成计划而忍痛。
+  </div>
+  <div class="card">
+    <h3>训练强度与进阶规则</h3>
+    <ul class="list">
+      <li>获准开始后，初期每个动作1–2组、每组10–15次，RPE约4–5/10；保留余力，不做到力竭。</li>
+      <li>动作全程正常呼吸，不屏气、不做Valsalva动作；避免最大重量和爆发式发力。</li>
+      <li>若疼痛或麻木出现/加重、向小腿或脚扩展、出现无力，立即停止该动作并联系医生/康复师。</li>
+      <li>每次只增加一个变量（次数、组数或时长），并以无症状、恢复良好和专业人员许可为前提。</li>
+      <li>下肢与核心训练不在本计划中预设深蹲、硬拉或神经拉伸；由康复专业人员按检查结果选动作。</li>
+    </ul>
+  </div>
+  <div id="weeklyPlans" class="grid" style="margin-top:14px"></div>
+  <details>
+    <summary>动作选择说明：为什么先选支撑式上肢训练？</summary>
+    <div class="details-body">
+      <p>如果心内科/康复专业人员允许，且动作不会诱发颈肩、臀部或腿部症状，可从固定轨迹、躯干有支撑的轻负荷动作开始，例如器械胸推、胸托划船、中立握下拉等。肩胛控制/胸椎活动练习需在无痛范围内进行。</p>
+      <p>这些只是候选动作，不是对你已确诊“圆肩/骨盆前倾”等问题的治疗处方。右肩较高、头前伸和胸椎僵硬属于照片观察与主观感受线索，需由专业人员确认。</p>
+      <p>下肢训练与核心训练应根据双侧臀部疼痛和大腿后侧麻木的评估结果单独设计。没有完成评估前，不要自行测试负重深蹲、硬拉、臀桥或强力拉伸。</p>
+    </div>
+  </details>
+</section>
+
+<section id="nutrition">
+  <div class="section-head"><div><h2>05 · 饮食执行标准</h2><p class="sub">以改善LDL、甘油三酯、尿酸和腰围为导向；不采用极端节食。</p></div></div>
+  <div class="grid grid-2">
+    <div class="card">
+      <h3>每餐餐盘法</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0">
+        <div style="background:#e7f2e9;border-radius:12px;padding:18px 10px;text-align:center"><b>½ 盘</b><br><span class="small">蔬菜</span></div>
+        <div style="display:grid;gap:8px">
+          <div style="background:#e8f1f8;border-radius:12px;padding:12px;text-align:center"><b>¼ 盘</b><br><span class="small">优质蛋白</span></div>
+          <div style="background:#fff0d9;border-radius:12px;padding:12px;text-align:center"><b>¼ 盘</b><br><span class="small">主食/全谷物</span></div>
+        </div>
+      </div>
+      <p class="small">午餐和晚餐尽量按此结构。早餐不强制，但避免白天长期不吃、晚上集中暴食。</p>
+    </div>
+    <div class="card">
+      <h3>可执行的每日标准</h3>
+      <ul class="list">
+        <li>蛋白质暂以约100–115g/日作为参考，前提是医生未提出蛋白质限制；分配到2–3餐。</li>
+        <li>优先鸡蛋、低脂奶/无糖酸奶、豆腐豆制品、适量鱼禽和瘦肉。</li>
+        <li>增加燕麦、豆类、蔬菜、水果等膳食纤维来源。</li>
+        <li>减少黄油、奶油、肥肉、加工肉、油炸食品及反式脂肪。</li>
+        <li>暂停酒精；减少烧烤、炸鸡和夜宵；避免含糖饮料。</li>
+      </ul>
+    </div>
+  </div>
+  <div class="table-wrap" style="margin-top:14px">
+    <table>
+      <thead><tr><th>场景</th><th>优先选择</th><th>减少/避免</th></tr></thead>
+      <tbody>
+        <tr><td>早餐（可选）</td><td>鸡蛋、无糖酸奶/低脂奶、燕麦、水果</td><td>高糖糕点、含糖饮料</td></tr>
+        <tr><td>外卖午餐</td><td>清蒸/炖/少油炒鱼禽或豆腐、双份蔬菜、适量米饭</td><td>炸鸡、肥肉盖饭、浓油酱汁、加工肉</td></tr>
+        <tr><td>晚餐</td><td>按餐盘法搭配；主食不必完全取消</td><td>因白天不吃而晚餐暴食</td></tr>
+        <tr><td>加餐</td><td>无糖酸奶、水果、少量无盐坚果</td><td>薯片、甜点、烧烤夜宵</td></tr>
+        <tr><td>饮料</td><td>白水、无糖茶/咖啡</td><td>酒精、含糖可乐/果汁</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout amber">
+    <strong>针对尿酸505 μmol/L</strong>
+    暂停啤酒和其他酒精；避免动物内脏、浓肉汤及大量红肉；正常补水，避免脱水、极端断食和快速减重。豆类、蔬菜等植物性蛋白不需要一概排除。若医生给出液体或饮食限制，以医嘱为准。
+  </div>
+  <div class="callout blue">
+    <strong>热量与体重速度</strong>
+    目前不直接设定精确热量，因为日常活动量、实际摄入和医疗治疗尚未完整评估。先执行餐盘法和减少高能量夜宵。若医生认可，后续可根据2–3周体重平均趋势再调整。建议温和下降，不追求快速减重；12周不保证达到75kg。
+  </div>
+</section>
+
+<section id="lifestyle">
+  <div class="section-head"><div><h2>06 · 睡眠、戒烟与日常恢复</h2><p class="sub">这些是计划的核心内容，不是训练之外的附加项。</p></div></div>
+  <div class="grid grid-3">
+    <div class="card">
+      <h3>睡眠</h3>
+      <ul class="list">
+        <li>尽快落实PAP/CPAP治疗评估。</li>
+        <li>目标逐步达到每晚7–9小时。</li>
+        <li>每周把入睡时间提前15–30分钟，避免骤然改变。</li>
+        <li>记录白天困倦、晨起疲惫和PAP使用情况。</li>
+        <li>明显困倦时不要驾驶。</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>戒烟</h3>
+      <ul class="list">
+        <li>当前约15支/天；长期目标为戒烟。</li>
+        <li>记录每日支数和第一次吸烟时间。</li>
+        <li>可向医生咨询尼古丁替代或其他戒烟治疗。</li>
+        <li>不把“减少几支”当作最终目标。</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>久坐管理</h3>
+      <ul class="list">
+        <li>每30–45分钟起身，短暂走动。</li>
+        <li>不连续坐到臀部疼痛/麻木出现。</li>
+        <li>选择不会诱发症状的舒适坐姿。</li>
+        <li>不强行拉伸臀部或大腿后侧。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="tracker">
+  <div class="section-head"><div><h2>07 · 12周身体指标追踪表</h2><p class="sub">在下表输入数据后会自动保存在当前浏览器；可导出CSV备份。请不要在公共电脑记录敏感健康信息。</p></div></div>
+  <div class="card">
+    <div class="form-grid">
+      <div><label class="field" for="baseWeight">基线体重（kg）</label><input id="baseWeight" type="number" step="0.1" value="82.3"></div>
+      <div><label class="field" for="baseWaist">基线腰围（cm）</label><input id="baseWaist" type="number" step="0.1" value="101"></div>
+      <div><label class="field" for="baseBodyfat">基线体脂率（%）</label><input id="baseBodyfat" type="number" step="0.1" value="25.2"></div>
+      <div><label class="field" for="baseMuscle">基线骨骼肌量（kg）</label><input id="baseMuscle" type="number" step="0.1" value="34.9"></div>
+    </div>
+    <hr>
+    <div class="table-wrap">
+      <table id="trackingTable">
+        <thead><tr><th>周次</th><th>日期</th><th>体重周均值 kg</th><th>腰围 cm</th><th>血压 mmHg</th><th>睡眠 h/晚</th><th>PAP使用</th><th>吸烟 支/日</th><th>臀腿症状 0–10</th><th>步行/训练分钟</th><th>备注</th></tr></thead>
+        <tbody id="trackingBody"></tbody>
+      </table>
+    </div>
+    <div class="btn-row no-print">
+      <button class="btn" id="exportCsv">导出追踪表 CSV</button>
+      <button class="btn secondary" id="exportJson">备份全部记录 JSON</button>
+      <button class="btn secondary" id="importJson">导入 JSON 备份</button><input type="file" id="backupFile" accept=".json,application/json" hidden>
+      <button class="btn outline" id="printBtn">打印 / 保存PDF</button>
+      <button class="btn danger" id="resetBtn">清空本机记录</button>
+    </div>
+    <p class="small">体重：建议每周晨起、如厕后、进食前测量3次，记录周平均；腰围每2周测一次（肚脐水平、自然呼吸、不收腹）；血压按医生建议测量。InBody每4–6周同设备同条件复测。血脂、尿酸按医生安排复查，不用每周自行检测。</p>
+  </div>
+</section>
+
+<section id="weekly">
+  <div class="section-head"><div><h2>08 · 每周执行打卡</h2><p class="sub">每周完成情况可勾选；勾选状态会自动保存到本机浏览器。</p></div><span class="tag green">可持续记录</span></div>
+  <div class="card">
+    <div class="section-head"><div><h3>所选周执行进度</h3><label for="selectedWeek">记录周次</label> <select id="selectedWeek" aria-label="选择打卡周次"><option value="1">第1周</option><option value="2">第2周</option><option value="3">第3周</option><option value="4">第4周</option><option value="5">第5周</option><option value="6">第6周</option><option value="7">第7周</option><option value="8">第8周</option><option value="9">第9周</option><option value="10">第10周</option><option value="11">第11周</option><option value="12">第12周</option></select><p class="sub" id="checkSummary">0项完成</p></div><strong id="checkPercent">0%</strong></div>
+    <div class="progress"><span id="checkProgress"></span></div>
+    <div class="grid grid-2" style="margin-top:14px">
+      <div>
+        <h4>健康习惯</h4>
+        <div class="checklist" id="habitChecks">
+          <label class="check"><input type="checkbox" data-save="habit-no-alcohol"><span>本周不饮酒</span></label>
+          <label class="check"><input type="checkbox" data-save="habit-meals"><span>规律安排午餐和晚餐，避免白天不吃、夜间暴食</span></label>
+          <label class="check"><input type="checkbox" data-save="habit-fiber"><span>每天有蔬菜/水果/燕麦或豆类等纤维来源</span></label>
+          <label class="check"><input type="checkbox" data-save="habit-water"><span>保持正常饮水，避免脱水</span></label>
+          <label class="check"><input type="checkbox" data-save="habit-sleep"><span>按计划逐步规律作息，并记录睡眠</span></label>
+          <label class="check"><input type="checkbox" data-save="habit-smoking"><span>记录吸烟量并执行戒烟行动</span></label>
+        </div>
+      </div>
+      <div>
+        <h4>活动与监测</h4>
+        <div class="checklist" id="activityChecks">
+          <label class="check"><input type="checkbox" data-save="activity-breaks"><span>每30–45分钟起身活动（避免诱发臀腿症状）</span></label>
+          <label class="check"><input type="checkbox" data-save="activity-walk"><span>完成医生允许且无症状的轻松步行</span></label>
+          <label class="check"><input type="checkbox" data-save="activity-strength"><span>仅在获准后完成计划内力量训练</span></label>
+          <label class="check"><input type="checkbox" data-save="activity-track"><span>记录体重、症状和睡眠等指标</span></label>
+          <label class="check"><input type="checkbox" data-save="activity-medical"><span>推进医疗评估/复诊/PAP治疗事项</span></label>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:14px">
+      <label class="field" for="weeklyNotes">本周总结 / 下周调整</label>
+      <textarea id="weeklyNotes" placeholder="记录本周最容易坚持的事情、出现的不适、医疗反馈和下周准备调整的内容。"></textarea>
+    </div>
+  </div>
+  <div id="weekCards" class="grid" style="margin-top:14px"></div>
+</section>
+
+<section id="review">
+  <div class="section-head"><div><h2>09 · 第12周复盘标准</h2><p class="sub">评价重点是健康管理是否真正落地，而非只看体重。</p></div></div>
+  <div class="card">
+    <div class="checklist">
+      <label class="check"><input type="checkbox" data-save="review-med"><span>完成心内科/血脂管理评估，并按医嘱执行治疗和复查</span></label>
+      <label class="check"><input type="checkbox" data-save="review-pap"><span>重度睡眠呼吸暂停已有明确治疗方案，并记录执行情况</span></label>
+      <label class="check"><input type="checkbox" data-save="review-neuro"><span>臀部疼痛及双侧大腿麻木完成医学/康复评估</span></label>
+      <label class="check"><input type="checkbox" data-save="review-exercise"><span>建立适合当前身体情况的规律活动/力量训练习惯</span></label>
+      <label class="check"><input type="checkbox" data-save="review-food"><span>饮食更规律，酒精暂停，夜宵和油炸食物减少</span></label>
+      <label class="check"><input type="checkbox" data-save="review-smoking"><span>吸烟量较基线下降，或已启动专业戒烟支持</span></label>
+      <label class="check"><input type="checkbox" data-save="review-metrics"><span>有可比较的体重、腰围、血压和复查数据</span></label>
+    </div>
+    <div class="callout green" style="margin-top:14px">
+      <strong>12周成功的定义</strong>
+      完成关键医疗评估、建立可持续生活方式、腰围和体重趋势改善、保留肌肉并且没有因训练加重神经症状。若12周尚未达到75kg，并不代表失败。
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  <p><b>资料依据：</b>用户提供的InBody（2026-11-08）、肝肾功能/血脂/尿酸报告（采样2026-11-07，报告未注明是否空腹）及睡眠监测信息。血脂报告：TC 7.21、TG 3.53、HDL-C 1.00、LDL-C 5.53、non-HDL-C 6.21 mmol/L；尿酸505 μmol/L；ALT37、AST20、肌酐87.6、eGFR98.8。睡眠AHI 30.7；TST 26.6的项目含义待核对原始报告。</p>
+  <p>本工具用于个人记录与健康教育，不能替代医生诊断、处方、睡眠治疗或康复评估。若医生意见与本计划不同，以医生意见为准。</p>
+  <p>本页面的记录保存在当前浏览器的本地存储中；清理浏览器数据可能导致记录丢失，请定期导出JSON备份。</p>
+</div>
+</div>
+
+<script>
+const STORAGE_KEY = "healthPlan12w_v1";
+const $ = (id)=>document.getElementById(id);
+const loadState = ()=>{try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||"{}")}catch(e){return {}}};
+let state = loadState();
+function saveState(){
+  try {localStorage.setItem(STORAGE_KEY,JSON.stringify(state));$("saveStatus").textContent="已保存到当前浏览器 · 手机和电脑暂不自动同步，可用 JSON 备份转移记录。";return true}
+  catch(e){$("saveStatus").textContent="保存失败，请立即导出 JSON 备份，避免关闭页面后丢失记录。";return false}
+}
+function currentWeek(){return Math.min(12,Math.max(1,Number(state.selectedWeek)||1))}
+function recordKey(key){return /^(habit-|activity-)/.test(key)||key==="weeklyNotes" ? "weeklog_"+currentWeek()+"_"+key : key}
+function saveInput(el){state[recordKey(el.id)]=el.value;saveState()}
+// Preserve the original single-week records as week 1.
+Object.keys(state).forEach(key=>{if(/^(habit-|activity-)/.test(key)||key==="weeklyNotes"){
+ const next="weeklog_1_"+key;if(state[next]===undefined)state[next]=state[key];delete state[key];
+}});
+function showWeek(){
+ document.querySelectorAll('#habitChecks input,#activityChecks input').forEach(el=>el.checked=!!state[recordKey(el.dataset.save)]);
+ $("weeklyNotes").value=state[recordKey("weeklyNotes")]||"";updateProgress();
+}
+function restoreInputs(){
+  document.querySelectorAll("input,textarea,select").forEach(el=>{
+    if(el.dataset.save){
+      el.checked=!!state[recordKey(el.dataset.save)];
+      el.addEventListener("change",()=>{state[recordKey(el.dataset.save)]=el.checked;saveState();updateProgress()});
+    }else if(el.id && state[el.id]!==undefined){el.value=state[el.id]}
+  });
+}
+function weekDates(start,week){
+  if(!start)return "待设置";
+  const d=new Date(start+"T12:00:00");d.setDate(d.getDate()+(week-1)*7);
+  const e=new Date(d);e.setDate(e.getDate()+6);
+  const fmt=x=>`${x.getFullYear()}-${String(x.getMonth()+1).padStart(2,"0")}-${String(x.getDate()).padStart(2,"0")}`;
+  return fmt(d)+" 至 "+fmt(e);
+}
+const plan = [
+ {phase:"阶段A｜医疗评估",title:"第1周：就医启动与基线记录",focus:"把医疗事项排上日程，不急于开始力量训练。",days:[
+  ["周一","预约心内科/血脂门诊；如无不适，可平地轻松步行10–15分钟。"],
+  ["周二","预约睡眠医学科/呼吸科；记录睡眠时长、晨起疲惫和打鼾情况。"],
+  ["周三","预约骨科/康复医学科；避免诱发臀痛或麻木的动作。"],
+  ["周四","轻松步行10–20分钟（仅在无症状时）；每30–45分钟起身。"],
+  ["周五","整理药物/检查资料，记录家庭血压（如有设备）；不做负重训练。"],
+  ["周六","检查一周饮食：暂停酒精，减少烧烤、炸鸡和夜宵。"],
+  ["周日","休息与复盘；若症状加重，提前就医。"]
+ ],goal:"完成预约和基线记录；轻松活动不诱发症状。"},
+ {phase:"阶段A｜医疗评估",title:"第2周：检查与治疗计划",focus:"根据医生意见决定后续运动边界。",days:[
+  ["周一","跟进心内科/血脂评估；记录医生建议和用药计划。"],
+  ["周二","跟进睡眠医学科，讨论PAP/CPAP方案；不要自行设定压力。"],
+  ["周三","完成腰臀/神经症状线下评估或预约；不做神经拉伸测试。"],
+  ["周四","如无症状且无医生限制，轻松步行10–20分钟。"],
+  ["周五","复盘饮食与吸烟记录；考虑戒烟门诊支持。"],
+  ["周六","轻松活动或休息；不以运动消耗热量为目标。"],
+  ["周日","记录是否获准开始低强度力量训练；未获准则继续阶段A。"]
+ ],goal:"明确心血管、OSA和腰臀症状的评估路径。"},
+ {phase:"阶段B｜获准后入门",title:"第3周：低负荷重新入门",focus:"仅在心内科/相关医生评估许可，且症状不被诱发后执行。",days:[
+  ["周一｜A","支撑式上肢：器械胸推、胸托划船、中立握下拉；每项1组×10–12次，RPE 4/10。"],
+  ["周二","轻松步行10–20分钟；久坐定时起身。"],
+  ["周三｜B","平地步行或低冲击有氧10–20分钟；无痛范围内做康复师批准的肩胛/胸椎练习。"],
+  ["周四","恢复日；记录臀部疼痛、双侧麻木是否变化。"],
+  ["周五｜C","仅做康复师指定的下肢/核心动作；若尚无动作许可，改为轻松步行。"],
+  ["周六","轻松步行或休息。"],
+  ["周日","复盘训练耐受，不增加重量。"]
+ ],goal:"熟悉动作、呼吸和训练记录；没有症状加重。"},
+ {phase:"阶段B｜获准后入门",title:"第4周：稳定动作模式",focus:"保持低强度，不急于增加组数。",days:[
+  ["周一｜A","获准的支撑式上肢动作1–2组×10–15次，RPE 4–5/10。"],
+  ["周二","轻松步行15–20分钟（无症状且获准）。"],
+  ["周三｜B","低冲击有氧15–20分钟；康复师批准的体态练习。"],
+  ["周四","恢复；避免连续久坐。"],
+  ["周五｜C","康复师批准的下肢/核心动作1组起步；不做力竭。"],
+  ["周六","轻松步行或休息。"],
+  ["周日","记录疼痛、麻木、疲劳和睡眠情况。"]
+ ],goal:"每个动作稳定、可控、无症状诱发。"},
+ {phase:"阶段C｜规律建立",title:"第5周：形成每周节奏",focus:"获准后每周3次；若尚未获准，继续阶段A活动。",days:[
+  ["周一｜A","支撑式胸推、胸托划船、中立握下拉；1–2组×10–15次。"],
+  ["周二","轻松步行15–25分钟。"],
+  ["周三｜B","低冲击有氧15–25分钟；康复师批准的胸椎/肩胛练习。"],
+  ["周四","恢复日；每30–45分钟起身。"],
+  ["周五｜C","上肢基础动作 + 康复师批准的下肢/核心动作；1–2组。"],
+  ["周六","轻松步行或休息。"],
+  ["周日","记录一周训练总量与症状。"]
+ ],goal:"建立稳定频率，不追求大重量。"},
+ {phase:"阶段C｜规律建立",title:"第6周：巩固与小幅增加",focus:"只在无症状、恢复良好且获准时增加一个变量。",days:[
+  ["周一｜A","上肢支撑式动作1–2组×10–15次；若轻松可先增加少量次数。"],
+  ["周二","轻松有氧15–25分钟。"],
+  ["周三｜B","低冲击有氧20分钟；康复师批准的体态练习。"],
+  ["周四","恢复；记录睡眠和疲劳。"],
+  ["周五｜C","康复师批准的全身动作；不屏气、不力竭。"],
+  ["周六","轻松步行或休息。"],
+  ["周日","腰围测量（双周一次）并复盘。"]
+ ],goal:"保持动作质量，观察身体恢复。"},
+ {phase:"阶段C｜规律建立",title:"第7周：耐力与动作控制",focus:"保持RPE约4–5/10；如有任何神经症状变化则退回并咨询专业人员。",days:[
+  ["周一｜A","上肢支撑式力量训练；每项1–2组×10–15次。"],
+  ["周二","轻松步行20–25分钟。"],
+  ["周三｜B","低冲击有氧20–25分钟 + 获准的肩胛/胸椎练习。"],
+  ["周四","恢复与久坐中断。"],
+  ["周五｜C","全身训练：上肢 + 康复师选定下肢/核心动作。"],
+  ["周六","轻松步行或休息。"],
+  ["周日","复盘训练、睡眠、吸烟和饮食。"]
+ ],goal:"训练后无持续性疼痛或麻木加重。"},
+ {phase:"阶段C｜规律建立",title:"第8周：中期复盘",focus:"比较体重周均值、腰围、睡眠治疗和医疗复查进展。",days:[
+  ["周一｜A","上肢支撑式力量训练；动作稳定后可增加1–2次重复。"],
+  ["周二","轻松有氧20–25分钟。"],
+  ["周三｜B","低冲击有氧20–25分钟 + 获准的体态练习。"],
+  ["周四","恢复；检查是否存在症状反复。"],
+  ["周五｜C","全身训练；下肢/核心动作严格按康复师方案。"],
+  ["周六","休息或轻松步行。"],
+  ["周日","可按医生安排复查血脂/尿酸；不自行提前或延后药物。"]
+ ],goal:"完成中期复盘；不以单次InBody结果评价成败。"},
+ {phase:"阶段D｜温和进阶",title:"第9周：小幅进阶",focus:"仅在获准、无症状、恢复良好时增加组数或有氧时长之一。",days:[
+  ["周一｜A","上肢力量；可将部分动作增加至2组，RPE不超过5–6/10。"],
+  ["周二","低冲击有氧20–30分钟。"],
+  ["周三｜B","有氧20–30分钟 + 康复师批准的体态练习。"],
+  ["周四","恢复日。"],
+  ["周五｜C","全身力量；下肢/核心仍按康复师选择。"],
+  ["周六","轻松步行或休息。"],
+  ["周日","复盘症状和疲劳，不强行完成缺失训练。"]
+ ],goal:"每周只增加一个训练变量。"},
+ {phase:"阶段D｜温和进阶",title:"第10周：稳定容量",focus:"保持动作质量；不做最大力量测试、HIIT或力竭训练。",days:[
+  ["周一｜A","上肢力量2组×10–15次（仅在获准范围内）。"],
+  ["周二","低冲击有氧20–30分钟。"],
+  ["周三｜B","有氧20–30分钟 + 获准的肩颈/胸椎练习。"],
+  ["周四","恢复；记录睡眠和PAP使用。"],
+  ["周五｜C","全身力量；不自行增加负重下肢动作。"],
+  ["周六","轻松步行或休息。"],
+  ["周日","腰围测量（双周一次），总结饮食执行情况。"]
+ ],goal:"训练后恢复良好，无神经症状加重。"},
+ {phase:"阶段D｜巩固复盘",title:"第11周：巩固长期习惯",focus:"训练不追求突破，重点保持规律。",days:[
+  ["周一｜A","上肢力量2组；保留余力，不做到力竭。"],
+  ["周二","低冲击有氧20–30分钟。"],
+  ["周三｜B","有氧20–30分钟 + 获准的体态练习。"],
+  ["周四","恢复与久坐中断。"],
+  ["周五｜C","全身力量；按医生/康复师已批准的动作执行。"],
+  ["周六","休息或轻松步行。"],
+  ["周日","整理医疗复查、药物/PAP治疗执行和身体记录。"]
+ ],goal:"形成可长期重复的训练周结构。"},
+ {phase:"阶段D｜巩固复盘",title:"第12周：总结与下一阶段计划",focus:"不以75kg作为必须完成的12周KPI。",days:[
+  ["周一｜A","按当前耐受完成上肢训练；不做测试性大重量。"],
+  ["周二","轻松有氧20–30分钟。"],
+  ["周三｜B","低冲击有氧 + 获准的体态练习。"],
+  ["周四","恢复。"],
+  ["周五｜C","按当前方案完成全身训练，记录动作和耐受。"],
+  ["周六","休息或轻松步行。"],
+  ["周日","完成12周复盘：体重、腰围、医疗管理、睡眠、吸烟、症状和训练。"]
+ ],goal:"明确下一阶段医疗与健身目标，保持可持续。"}
+];
+function renderPlans(){
+  const start=$("startDate").value;
+  $("weeklyPlans").innerHTML=plan.map((w,i)=>`
+    <div class="week-card">
+      <div class="week-title"><div><span class="tag">${w.phase}</span><br><strong>${w.title}</strong><div class="small">${weekDates(start,i+1)}</div></div><span class="tag">${i<2?"医疗优先": "获准后执行"}</span></div>
+      <div class="week-body"><p class="muted" style="margin-top:0">${w.focus}</p>
+        <div class="week-grid">${w.days.map(d=>`<div class="day"><b>${d[0]}</b><p>${d[1]}</p></div>`).join("")}</div>
+        <div class="callout blue week-check"><b>本周完成标准</b>${w.goal}</div>
+        <label class="check"><input type="checkbox" data-save="week-${i+1}"><span>第${i+1}周复盘已完成</span></label>
+      </div>
+    </div>`).join("");
+  document.querySelectorAll('input[data-save^="week-"]').forEach(el=>{
+    el.checked=!!state[el.dataset.save];
+    el.addEventListener("change",()=>{state[el.dataset.save]=el.checked;saveState();updateProgress()});
+  });
+}
+function renderTracking(){
+  const body=$("trackingBody");
+  body.innerHTML=Array.from({length:12},(_,i)=>{
+    const n=i+1;
+    return `<tr>
+      <td><b>第${n}周</b></td><td class="date-cell">${weekDates($("startDate").value,n)}</td>
+      <td><input aria-label="第${n}周体重" data-track="w${n}" data-key="weight" type="number" step="0.1" placeholder="—"></td>
+      <td><input aria-label="第${n}周腰围" data-track="w${n}" data-key="waist" type="number" step="0.1" placeholder="隔周"></td>
+      <td><input aria-label="第${n}周血压" data-track="w${n}" data-key="bp" type="text" placeholder="如 120/80"></td>
+      <td><input aria-label="第${n}周睡眠" data-track="w${n}" data-key="sleep" type="number" step="0.1" placeholder="—"></td>
+      <td><input aria-label="第${n}周PAP" data-track="w${n}" data-key="pap" type="text" placeholder="小时/晚或未开始"></td>
+      <td><input aria-label="第${n}周吸烟" data-track="w${n}" data-key="smoke" type="number" step="1" placeholder="支/日"></td>
+      <td><input aria-label="第${n}周症状" data-track="w${n}" data-key="symptom" type="number" min="0" max="10" step="1" placeholder="0–10"></td>
+      <td><input aria-label="第${n}周活动" data-track="w${n}" data-key="activity" type="number" step="5" placeholder="分钟"></td>
+      <td><input aria-label="第${n}周备注" data-track="w${n}" data-key="notes" type="text" placeholder="备注"></td>
+    </tr>`;
+  }).join("");
+  document.querySelectorAll("[data-track]").forEach(el=>{
+    const key=el.dataset.track+"_"+el.dataset.key;
+    if(state[key]!==undefined)el.value=state[key];
+    el.addEventListener("input",()=>{state[key]=el.value;saveState()});
+  });
+}
+function refreshDates(){
+  document.querySelectorAll(".date-cell").forEach((el,i)=>el.textContent=weekDates($("startDate").value,i+1));
+  renderPlans();
+}
+function updateProgress(){
+  const checks=[...document.querySelectorAll('#habitChecks input[type="checkbox"],#activityChecks input[type="checkbox"]')];
+  const done=checks.filter(c=>c.checked).length,total=checks.length;
+  const pct=total?Math.round(done/total*100):0;
+  $("checkProgress").style.width=pct+"%";$("checkPercent").textContent=pct+"%";$("checkSummary").textContent=`${done} / ${total} 项已完成`;
+}
+function download(filename,content,type){
+  const blob=new Blob([content],{type});const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+}
+function csvEscape(v){return '"'+String(v??"").replace(/"/g,'""')+'"'}
+function exportCsv(){
+  const headers=["周次","日期","体重周均值kg","腰围cm","血压mmHg","睡眠小时/晚","PAP使用","吸烟支/日","臀腿症状0-10","步行/训练分钟","备注"];
+  const rows=[headers];
+  for(let i=1;i<=12;i++){
+    rows.push([`第${i}周`,weekDates($("startDate").value,i),state[`w${i}_weight`]||"",state[`w${i}_waist`]||"",state[`w${i}_bp`]||"",state[`w${i}_sleep`]||"",state[`w${i}_pap`]||"",state[`w${i}_smoke`]||"",state[`w${i}_symptom`]||"",state[`w${i}_activity`]||"",state[`w${i}_notes`]||""]);
+  }
+  download("12周健康指标追踪.csv","\ufeff"+rows.map(r=>r.map(csvEscape).join(",")).join("\r\n"),"text/csv;charset=utf-8");
+}
+restoreInputs();
+["startDate","baseWeight","baseWaist","baseBodyfat","baseMuscle","weeklyNotes"].forEach(id=>{
+  const el=$(id);if(el){el.addEventListener("input",()=>{saveInput(el);if(id==="startDate")refreshDates()})}
+});
+renderPlans();renderTracking();showWeek();
+$("selectedWeek").value=String(currentWeek());
+$("selectedWeek").addEventListener("change",()=>{state.selectedWeek=$("selectedWeek").value;saveState();showWeek()});
+$("importJson").addEventListener("click",()=>$("backupFile").click());
+function validateBackup(data){
+ if(!data||typeof data!=="object"||Array.isArray(data))throw Error("备份必须是 JSON 记录对象。");
+ const allowed=new Set(["startDate","baseWeight","baseWaist","baseBodyfat","baseMuscle","selectedWeek"]);
+ document.querySelectorAll("input[data-save]").forEach(el=>allowed.add(el.dataset.save));
+ document.querySelectorAll("[data-track]").forEach(el=>allowed.add(el.dataset.track+"_"+el.dataset.key));
+ for(let w=1;w<=12;w++){
+   allowed.add("weeklog_"+w+"_weeklyNotes");
+   document.querySelectorAll('#habitChecks input,#activityChecks input').forEach(el=>allowed.add("weeklog_"+w+"_"+el.dataset.save));
+ }
+ allowed.add("weeklyNotes");
+ const clean={};
+ for(const [key,value] of Object.entries(data)){
+   if(!allowed.has(key)||!["string","boolean","number"].includes(typeof value))throw Error("备份包含不支持的记录字段。");
+   if(typeof value==="string"&&value.length>50000)throw Error("备份字段过长。");
+   if(/^(habit-|activity-|med-|review-|week-)|^weeklog_\d+_(habit-|activity-)/.test(key)&&typeof value!=="boolean")throw Error("打卡字段格式错误。");
+   if(key==="selectedWeek"&&(!Number.isInteger(Number(value))||Number(value)<1||Number(value)>12))throw Error("周次格式错误。");
+   if(key==="startDate"&&value!==""&&(!/^\d{4}-\d{2}-\d{2}$/.test(value)||isNaN(Date.parse(value+"T12:00:00"))))throw Error("开始日期格式错误。");
+   clean[key]=value;
+ }
+ if(!Object.keys(clean).length)throw Error("备份没有记录。");
+ return clean;
+}
+$("backupFile").addEventListener("change",async event=>{
+ const file=event.target.files[0];if(!file)return;
+ try{
+   if(file.size>2*1024*1024)throw Error("备份文件超过 2 MB。");
+   const next=validateBackup(JSON.parse(await file.text()));
+   if(!confirm("导入将替换当前浏览器的全部记录。建议先备份当前数据。确定导入？"))return;
+   const previous=state;state=next;if(saveState())location.reload();else state=previous;
+ }catch(error){alert("无法导入："+error.message)}finally{event.target.value=""}
+});
+$("exportCsv").addEventListener("click",exportCsv);
+$("exportJson").addEventListener("click",()=>download("12周健康计划-本机记录备份.json",JSON.stringify(state,null,2),"application/json;charset=utf-8"));
+$("printBtn").addEventListener("click",()=>window.print());
+$("resetBtn").addEventListener("click",()=>{
+  if(confirm("确定清空当前浏览器保存的所有计划记录吗？此操作无法撤销。")){
+    try{localStorage.removeItem(STORAGE_KEY);state={};location.reload()}catch(e){alert("清空失败，浏览器未允许访问本地存储。")}
+  }
+});
+</script>
+</body>
+</html>
