@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <meta name="color-scheme" content="light">
 <title>12周健身与健康管理计划</title>
@@ -131,6 +131,32 @@ summary{cursor:pointer;padding:13px 15px;font-weight:700;color:var(--navy)}
  input,textarea,select{border:0!important;padding:2px!important}
  .callout{break-inside:avoid}
 }
+
+/* Fixed five-view navigation, matching the travel planner's mobile pattern. */
+body.has-tabs .wrap{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))}
+.bottom-nav{position:fixed;z-index:30;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));width:min(100%,1120px);margin:0 auto;padding:7px 6px calc(7px + env(safe-area-inset-bottom,0px));gap:3px;border:1px solid var(--line);border-bottom:0;border-radius:20px 20px 0 0;background:rgba(255,255,255,.97);box-shadow:0 -4px 24px rgba(24,50,75,.09);backdrop-filter:blur(16px)}
+.bottom-nav button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-width:0;min-height:56px;padding:6px 1px;border:0;border-radius:12px;background:transparent;color:var(--muted);font-size:12px;font-weight:650;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.bottom-nav svg{width:22px;height:22px;flex-shrink:0}
+.bottom-nav button[aria-current="page"]{color:var(--teal);background:var(--teal-light)}
+.bottom-nav button:focus-visible{outline:3px solid var(--teal);outline-offset:-3px}
+.has-tabs #saveStatus{font-size:12px;padding:10px 13px;margin-bottom:16px}
+@media(max-width:560px){
+ .has-tabs .hero{padding:20px 18px;border-radius:18px}
+ .has-tabs .hero h1{font-size:25px;line-height:1.25}
+ .has-tabs .hero p{font-size:13px}
+ .has-tabs .hero-meta{gap:6px;margin-top:14px}
+ .has-tabs .pill{font-size:11px;padding:4px 8px}
+ body.has-tabs:not([data-active-page="profile"]) .hero p,body.has-tabs:not([data-active-page="profile"]) .hero-meta{display:none}
+ .bottom-nav{border-radius:16px 16px 0 0}
+ .bottom-nav button{font-size:11px}
+}
+@media print{
+ body.has-tabs .wrap{padding-bottom:0}
+ [data-page][hidden]{display:block!important}
+ [data-page].no-print{display:none!important}
+ body.has-tabs .hero p,body.has-tabs .hero-meta{display:block!important}
+}
+
 </style>
 </head>
 <body>
@@ -145,7 +171,7 @@ summary{cursor:pointer;padding:13px 15px;font-weight:700;color:var(--navy)}
 </header>
 
 <div class="callout blue no-print" role="status" id="saveStatus">记录会先保存在当前浏览器；登录后可同步到同一账号的其他设备。建议定期备份。</div>
-<section class="card no-print" id="cloudSync" aria-labelledby="cloudHeading">
+<section class="card no-print" id="cloudSync" aria-labelledby="cloudHeading" data-page="profile">
 <h2 id="cloudHeading">云端同步</h2>
 <p id="cloudAccount" class="sub">用同一个邮箱登录，即可在手机与电脑之间同步。</p>
 <div id="cloudLogin" class="grid grid-2" style="margin-top:14px">
@@ -158,11 +184,9 @@ summary{cursor:pointer;padding:13px 15px;font-weight:700;color:var(--navy)}
 <div id="cloudConflicts" class="callout amber" hidden><strong>有记录需要选择</strong><p id="cloudConflictDetails" style="white-space:pre-line"></p><div class="btn-row"><button class="btn" id="cloudKeepLocal">保留本机冲突项</button><button class="btn secondary" id="cloudKeepRemote">使用云端冲突项</button></div></div>
 <p class="small">登录后，打卡、指标和总结会保存到你的 Supabase 账号记录中，仅该账号可读写。每15秒及返回页面时检查更新；离线修改会暂存本机。请在个人设备登录，并定期导出备份。</p>
 </section>
-<nav class="no-print">
-  <a href="#overview">个人档案</a><a href="#safety">安全与就医</a><a href="#roadmap">12周路线</a><a href="#training">训练安排</a><a href="#nutrition">饮食标准</a><a href="#lifestyle">睡眠与戒烟</a><a href="#tracker">指标追踪</a><a href="#weekly">每周打卡</a>
-</nav>
 
-<section id="overview">
+
+<section id="overview" data-page="profile">
   <div class="section-head"><div><h2>01 · 个人基线档案</h2><p class="sub">根据本次对话、InBody（2026-11-08）及实验室报告（2026-11-07）整理。</p></div><span class="tag">基线数据</span></div>
   <div class="grid grid-4">
     <div class="metric"><div class="label">体重</div><div class="value">82.3 kg</div><div class="note">中长期目标 75 kg</div></div>
@@ -202,7 +226,7 @@ summary{cursor:pointer;padding:13px 15px;font-weight:700;color:var(--navy)}
   </div>
 </section>
 
-<section id="safety">
+<section id="safety" data-page="profile">
   <div class="section-head"><div><h2>02 · 医疗优先事项与运动安全</h2><p class="sub">先处理高优先级风险，再逐步增加训练量。</p></div><span class="tag red">优先完成</span></div>
   <div class="callout red">
     <strong>1. LDL-C 5.53 mmol/L：请尽快预约心内科或血脂专病门诊</strong>
@@ -239,7 +263,7 @@ summary{cursor:pointer;padding:13px 15px;font-weight:700;color:var(--navy)}
   <p class="small">没有运动症状是有利信息，但不能据此排除心血管疾病或自动获得高强度训练许可。是否需要运动负荷试验由医生结合病史、体检和风险决定。</p>
 </section>
 
-<section id="roadmap">
+<section id="roadmap" data-page="training">
   <div class="section-head"><div><h2>03 · 12周路线图</h2><p class="sub">前2周以就医评估和低强度活动为主；后续训练只有在相关医生评估后、症状不被诱发且获准时才逐步执行。</p></div></div>
   <div class="grid grid-3">
     <div class="card">
@@ -277,7 +301,7 @@ summary{cursor:pointer;padding:13px 15px;font-weight:700;color:var(--navy)}
   </div>
 </section>
 
-<section id="training">
+<section id="training" data-page="training">
   <div class="section-head"><div><h2>04 · 每周训练安排</h2><p class="sub">建议训练日：周一、周三、周五；其他日安排轻松步行/恢复。所有正式力量训练均以医疗评估及许可为前提。</p></div></div>
   <div class="callout red">
     <strong>医学评估前：只执行“阶段A”</strong>
@@ -304,7 +328,7 @@ summary{cursor:pointer;padding:13px 15px;font-weight:700;color:var(--navy)}
   </details>
 </section>
 
-<section id="nutrition">
+<section id="nutrition" data-page="nutrition">
   <div class="section-head"><div><h2>05 · 饮食执行标准</h2><p class="sub">以改善LDL、甘油三酯、尿酸和腰围为导向；不采用极端节食。</p></div></div>
   <div class="grid grid-2">
     <div class="card">
@@ -351,7 +375,7 @@ summary{cursor:pointer;padding:13px 15px;font-weight:700;color:var(--navy)}
   </div>
 </section>
 
-<section id="lifestyle">
+<section id="lifestyle" data-page="nutrition">
   <div class="section-head"><div><h2>06 · 睡眠、戒烟与日常恢复</h2><p class="sub">这些是计划的核心内容，不是训练之外的附加项。</p></div></div>
   <div class="grid grid-3">
     <div class="card">
@@ -385,7 +409,7 @@ summary{cursor:pointer;padding:13px 15px;font-weight:700;color:var(--navy)}
   </div>
 </section>
 
-<section id="tracker">
+<section id="tracker" data-page="tracker">
   <div class="section-head"><div><h2>07 · 12周身体指标追踪表</h2><p class="sub">在下表输入数据后会自动保存在当前浏览器；可导出CSV备份。请不要在公共电脑记录敏感健康信息。</p></div></div>
   <div class="card">
     <div class="form-grid">
@@ -412,7 +436,7 @@ summary{cursor:pointer;padding:13px 15px;font-weight:700;color:var(--navy)}
   </div>
 </section>
 
-<section id="weekly">
+<section id="weekly" data-page="weekly">
   <div class="section-head"><div><h2>08 · 每周执行打卡</h2><p class="sub">每周完成情况可勾选；勾选状态会自动保存到本机浏览器。</p></div><span class="tag green">可持续记录</span></div>
   <div class="card">
     <div class="section-head"><div><h3>所选周执行进度</h3><label for="selectedWeek">记录周次</label> <select id="selectedWeek" aria-label="选择打卡周次"><option value="1">第1周</option><option value="2">第2周</option><option value="3">第3周</option><option value="4">第4周</option><option value="5">第5周</option><option value="6">第6周</option><option value="7">第7周</option><option value="8">第8周</option><option value="9">第9周</option><option value="10">第10周</option><option value="11">第11周</option><option value="12">第12周</option></select><p class="sub" id="checkSummary">0项完成</p></div><strong id="checkPercent">0%</strong></div>
@@ -448,7 +472,7 @@ summary{cursor:pointer;padding:13px 15px;font-weight:700;color:var(--navy)}
   <div id="weekCards" class="grid" style="margin-top:14px"></div>
 </section>
 
-<section id="review">
+<section id="review" data-page="weekly">
   <div class="section-head"><div><h2>09 · 第12周复盘标准</h2><p class="sub">评价重点是健康管理是否真正落地，而非只看体重。</p></div></div>
   <div class="card">
     <div class="checklist">
@@ -467,7 +491,7 @@ summary{cursor:pointer;padding:13px 15px;font-weight:700;color:var(--navy)}
   </div>
 </section>
 
-<div class="footer">
+<div class="footer" data-page="profile">
   <p><b>资料依据：</b>用户提供的InBody（2026-11-08）、肝肾功能/血脂/尿酸报告（采样2026-11-07，报告未注明是否空腹）及睡眠监测信息。血脂报告：TC 7.21、TG 3.53、HDL-C 1.00、LDL-C 5.53、non-HDL-C 6.21 mmol/L；尿酸505 μmol/L；ALT37、AST20、肌酐87.6、eGFR98.8。睡眠AHI 30.7；TST 26.6的项目含义待核对原始报告。</p>
   <p>本工具用于个人记录与健康教育，不能替代医生诊断、处方、睡眠治疗或康复评估。若医生意见与本计划不同，以医生意见为准。</p>
   <p>本页面的记录保存在当前浏览器的本地存储中；清理浏览器数据可能导致记录丢失，请定期导出JSON备份。</p>
@@ -732,5 +756,7 @@ $("resetBtn").addEventListener("click",()=>{
 <script src="./assets/supabase.min.js"></script>
 <script src="./sync-core.js"></script>
 <script src="./cloud-sync.js"></script>
+<nav class="bottom-nav no-print" id="bottomNav" aria-label="主要导航" hidden><button type="button" data-view="profile" aria-controls="overview safety cloudSync"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3"/><path d="M5 21v-2a7 7 0 0 1 14 0v2M4 3h16"/></svg><span>个人档案</span></button><button type="button" data-view="training" aria-controls="roadmap training"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8v8M3 10v4M18 8v8M21 10v4M6 12h12"/></svg><span>训练安排</span></button><button type="button" data-view="nutrition" aria-controls="nutrition lifestyle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3v6M4 3v4a3 3 0 0 0 6 0V3M7 10v11M20 3c-4 2-5 5-5 9h5M20 3v18"/></svg><span>饮食标准</span></button><button type="button" data-view="tracker" aria-controls="tracker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4v16h17M8 15l4-5 4 3 5-7"/></svg><span>指标追踪</span></button><button type="button" data-view="weekly" aria-controls="weekly review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="3"/><path d="M8 3v4M16 3v4M4 10h16M8 15l3 3 5-5"/></svg><span>每周打卡</span></button></nav>
+<script src="./mobile-tabs.js"></script>
 </body>
 </html>
