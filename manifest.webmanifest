@@ -1,9 +1,9 @@
 {
-  "id": "/health-plan-12weeks/",
+  "id": "/health-plan/",
   "name": "12周健身与健康管理计划",
   "short_name": "健康计划",
   "lang": "zh-CN",
-  "start_url": "./?v=20261112-v3blue",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#f7faff",

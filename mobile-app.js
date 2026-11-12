@@ -1,5 +1,6 @@
 (function () {
   'use strict';
+  const entryUrl=new URL(location.href);if(entryUrl.searchParams.has('v')){entryUrl.searchParams.delete('v');history.replaceState(history.state,'',entryUrl.pathname+entryUrl.search+entryUrl.hash)}
   const id = name => document.getElementById(name);
   const titles = {profile:'个人档案',training:'训练安排',nutrition:'饮食标准',tracker:'指标追踪',weekly:'每周打卡'};
   function updateHeader() {id('appSubtitle').textContent = titles[document.body.dataset.activePage] || '个人档案'}
@@ -87,6 +88,6 @@
   }
   id('appReload').addEventListener('click',()=>{
     if(document.activeElement?.matches('input,textarea'))document.activeElement.blur();
-    const url=new URL(location.href);url.searchParams.set('v','20261112-v3blue');location.replace(url.href);
+    const url=new URL(location.href);url.searchParams.delete('v');location.replace(url.href);
   });
 })();

@@ -159,7 +159,7 @@
     if (!client) {message('登录组件未加载，请刷新重试');return}
     $('cloudSendCode').disabled = true;message('正在发送登录邮件…');
     try {
-      const {error} = await client.auth.signInWithOtp({email, options:{shouldCreateUser:true,emailRedirectTo:'https://chichao777.github.io/health-plan-12weeks/'}});
+      const {error} = await client.auth.signInWithOtp({email, options:{shouldCreateUser:true,emailRedirectTo:'https://chichao777.github.io/health-plan/'}});
       if (error) throw error;
       message('登录邮件已发送：输入邮件里的验证码，或在当前设备打开登录链接。');
       setTimeout(() => $('cloudSendCode').disabled = false,60000);

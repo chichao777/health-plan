@@ -1,6 +1,6 @@
 /* Public application shell only. Auth endpoints and personal cloud records are never cached. */
-const VERSION='health-plan-shell-20261112-v3blue';
-const REV='20261112-v3blue';
+const VERSION='health-plan-shell-20261112-health-plan';
+const REV='20261112-health-plan';
 const SHELL=['./','./index.html','./sports-theme.css?v='+REV,'./medical-theme.css?v='+REV,'./v3-blue.css?v='+REV,'./sports-ui.js?v='+REV,'./weekly-dates.js?v='+REV,'./assets/wellness-hero.png?v='+REV,'./mobile-app.css?v='+REV,'./mobile-app.js?v='+REV,
  './mobile-tabs.js?v='+REV,'./cloud-sync.js?v='+REV,'./sync-core.js?v='+REV,
  './assets/supabase.min.js?v='+REV,'./assets/health-icon.svg','./assets/health-icon-180.png',
