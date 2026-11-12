@@ -73,6 +73,6 @@
   }
   id('appReload').addEventListener('click',()=>{
     if(document.activeElement?.matches('input,textarea'))document.activeElement.blur();
-    const url=new URL(location.href);url.searchParams.set('v','20261112-app');location.replace(url.href);
+    const url=new URL(location.href);url.searchParams.set('v','20261112-app2');location.replace(url.href);
   });
 })();
